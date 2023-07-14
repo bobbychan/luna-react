@@ -1,0 +1,51 @@
+.alert {
+  --alert-color: hsl(var(--bc));
+  --alert-bg: hsl(var(--b2));
+  --alert-radius: var(--rounded-box, 1rem);
+  display: grid;
+  align-items: center;
+  align-content: flex-start;
+  gap: var(--space-4);
+  grid-auto-flow: row;
+  width: 100%;
+  padding: var(--space-4);
+  background-color: var(--alert-bg);
+  color: var(--alert-color);
+  text-align: center;
+  justify-items: center;
+  border-radius: var(--alert-radius);
+
+  @media (min-width: 640px) {
+    grid-auto-flow: column;
+    grid-template-columns: auto minmax(auto, 1fr);
+    text-align: left;
+    justify-items: start;
+  }
+
+  &-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  &-info {
+    --alert-bg: hsl(var(--in));
+    --alert-color: hsl(var(--inc));
+  }
+
+  &-success {
+    --alert-bg: hsl(var(--su));
+    --alert-color: hsl(var(--suc));
+  }
+
+  &-warning {
+    --alert-bg: hsl(var(--wa));
+    --alert-color: hsl(var(--wac));
+  }
+
+  &-error {
+    --alert-bg: hsl(var(--er));
+    --alert-color: hsl(var(--erc));
+  }
+}

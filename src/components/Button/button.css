@@ -1,0 +1,540 @@
+.btn {
+  --btn-focus-scale: 0.95;
+  --animation-btn: 0.25s;
+  display: inline-flex;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter, -webkit-backdrop-filter;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--rounded-btn, 0.5rem);
+  height: var(--size-10);
+  min-height: var(--size-10);
+  padding-inline: var(--space-4);
+  font-size: var(--text-base);
+  line-height: 1em;
+  gap: var(--size-2);
+  font-weight: var(--font-semibold);
+  text-decoration-line: none;
+  animation: button-pop var(--animation-btn) ease-out;
+
+  &:active:hover,
+  &:active:focus {
+    animation: button-pop 0s ease-out;
+    transform: scale(var(--btn-focus-scale));
+  }
+
+  &-no-animation {
+    --btn-focus-scale: 1;
+    --animation-btn: 0;
+  }
+
+  &-loading {
+    pointer-events: none;
+  }
+
+  /* icon */
+  &-icon {
+    width: var(--size-5);
+  }
+
+  /* shapes */
+  &-square {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: 0;
+
+    &:where(.btn-xs) {
+      width: var(--size-6);
+      height: var(--size-6);
+      padding: 0;
+    }
+    &:where(.btn-sm) {
+      width: var(--size-8);
+      height: var(--size-8);
+      padding: 0;
+    }
+    &:where(.btn-md) {
+      width: var(--size-10);
+      height: var(--size-10);
+      padding: 0;
+    }
+    &:where(.btn-lg) {
+      width: var(--size-12);
+      height: var(--size-12);
+      padding: 0;
+    }
+  }
+  &-circle {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: 0;
+    border-radius: var(--rounded-full);
+
+    &:where(.btn-xs) {
+      border-radius: var(--rounded-full);
+      width: var(--size-6);
+      height: var(--size-6);
+      padding: 0;
+    }
+    &:where(.btn-sm) {
+      border-radius: var(--rounded-full);
+      width: var(--size-8);
+      height: var(--size-8);
+      padding: 0;
+    }
+    &:where(.btn-md) {
+      border-radius: var(--rounded-full);
+      width: var(--size-10);
+      height: var(--size-10);
+      padding: 0;
+    }
+    &:where(.btn-lg) {
+      border-radius: var(--rounded-full);
+      width: var(--size-12);
+      height: var(--size-12);
+      padding: 0;
+    }
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  /* default btn */
+  & {
+    --btn-border-color: hsl(var(--b2));
+    --btn-bg: hsl(var(--b2));
+    --btn-bg-hover: var(--b3);
+    --btn-color: var(--bc);
+
+    border: 1px solid hsl(var(--b2));
+    background-color: var(--btn-bg);
+    color: hsl(var(--bc));
+    outline-color: hsl(var(--bc));
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--b3));
+        background-color: hsl(var(--b3));
+      }
+    }
+    &-active {
+      border-color: hsl(var(--b3));
+      background-color: hsl(var(--b3));
+    }
+    &:focus-visible {
+      outline-style: solid;
+      outline-width: 2px;
+      outline-offset: 2px;
+    }
+  }
+
+  /* brand colors */
+  &-primary {
+    border-color: hsl(var(--p));
+    background-color: hsl(var(--p));
+    color: hsl(var(--pc));
+    outline-color: hsl(var(--p));
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--pf));
+        background-color: hsl(var(--pf));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--pf));
+      background-color: hsl(var(--pf));
+    }
+  }
+  &-secondary {
+    border-color: hsl(var(--s));
+    background-color: hsl(var(--s));
+    color: hsl(var(--sc));
+    outline-color: hsl(var(--s));
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--sf));
+        background-color: hsl(var(--sf));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--sf));
+      background-color: hsl(var(--sf));
+    }
+  }
+  &-accent {
+    border-color: hsl(var(--a));
+    background-color: hsl(var(--a));
+    color: hsl(var(--ac));
+    outline-color: hsl(var(--a));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--af));
+        background-color: hsl(var(--af));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--af));
+      background-color: hsl(var(--af));
+    }
+  }
+  &-neutral {
+    border-color: hsl(var(--n));
+    background-color: hsl(var(--n));
+    color: hsl(var(--nc));
+    outline-color: hsl(var(--n));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--nf));
+        background-color: hsl(var(--nf));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--nf));
+      background-color: hsl(var(--nf));
+    }
+  }
+
+  /* btn with state colors */
+  &-info {
+    border-color: hsl(var(--in));
+    background-color: hsl(var(--in));
+    color: hsl(var(--inc));
+    outline-color: hsl(var(--in));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--in));
+        background-color: hsl(var(--in));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--in));
+      background-color: hsl(var(--in));
+    }
+  }
+  &-success {
+    border-color: hsl(var(--su));
+    background-color: hsl(var(--su));
+    color: hsl(var(--suc));
+    outline-color: hsl(var(--su));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--su));
+        background-color: hsl(var(--su));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--su));
+      background-color: hsl(var(--su));
+    }
+  }
+  &-warning {
+    border-color: hsl(var(--wa));
+    background-color: hsl(var(--wa));
+    color: hsl(var(--wac));
+    outline-color: hsl(var(--wa));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--wa));
+        background-color: hsl(var(--wa));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--wa));
+      background-color: hsl(var(--wa));
+    }
+  }
+  &-error {
+    border-color: hsl(var(--er));
+    background-color: hsl(var(--er));
+    color: hsl(var(--erc));
+    outline-color: hsl(var(--er));
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--er));
+        background-color: hsl(var(--er));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--er));
+      background-color: hsl(var(--er));
+    }
+  }
+
+  /* btn variants */
+  &-ghost {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: currentColor;
+    box-shadow: none;
+    outline-color: currentColor;
+    @media (hover: hover) {
+      &:hover {
+        background-color: hsl(var(--bc) / 0.2);
+      }
+    }
+    &.btn-active {
+      background-color: hsl(var(--bc) / 0.2);
+    }
+  }
+  &-link {
+    border-color: transparent;
+    background-color: transparent;
+    color: hsl(var(--p));
+    text-decoration-line: underline;
+    box-shadow: none;
+    outline-color: currentColor;
+    @media (hover: hover) {
+      &:hover {
+        border-color: transparent;
+        background-color: transparent;
+        text-decoration-line: underline;
+      }
+    }
+    &.btn-active {
+      border-color: transparent;
+      background-color: transparent;
+      text-decoration-line: underline;
+    }
+  }
+
+  /* outline */
+  &-outline {
+    border-color: currentColor;
+    background-color: transparent;
+    color: hsl(var(--bc));
+    box-shadow: none;
+    @media (hover: hover) {
+      &:hover {
+        border-color: hsl(var(--bc));
+        background-color: hsl(var(--bc));
+        color: hsl(var(--b1));
+      }
+    }
+    &.btn-active {
+      border-color: hsl(var(--bc));
+      background-color: hsl(var(--bc));
+      color: hsl(var(--b1));
+    }
+    &.btn-primary {
+      color: hsl(var(--p));
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--pf));
+          background-color: hsl(var(--pf));
+          color: hsl(var(--pc));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--pf));
+        background-color: hsl(var(--pf));
+        color: hsl(var(--pc));
+      }
+    }
+    &.btn-secondary {
+      color: hsl(var(--s));
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--sf));
+          background-color: hsl(var(--sf));
+          color: hsl(var(--sc));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--sf));
+        background-color: hsl(var(--sf));
+        color: hsl(var(--sc));
+      }
+    }
+    &.btn-accent {
+      color: hsl(var(--a));
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--af));
+          background-color: hsl(var(--af));
+          color: hsl(var(--ac));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--af));
+        background-color: hsl(var(--af));
+        color: hsl(var(--ac));
+      }
+    }
+    &.btn-success {
+      color: hsl(var(--su));
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--su));
+          background-color: hsl(var(--su));
+          color: hsl(var(--suc));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--su));
+        background-color: hsl(var(--su));
+        color: hsl(var(--suc));
+      }
+    }
+    &.btn-info {
+      color: var(--in);
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--in));
+          background-color: hsl(var(--in));
+          color: hsl(var(--inc));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--in));
+        background-color: hsl(var(--in));
+        color: hsl(var(--inc));
+      }
+    }
+    &.btn-warning {
+      color: var(--wa);
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--wa));
+          background-color: hsl(var(--wa));
+          color: hsl(var(--wac));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--wa));
+        background-color: hsl(var(--wa));
+        color: hsl(var(--wac));
+      }
+    }
+    &.btn-error {
+      color: var(--er);
+      @media (hover: hover) {
+        &:hover {
+          border-color: hsl(var(--er));
+          background-color: hsl(var(--er));
+          color: hsl(var(--erc));
+        }
+      }
+      &.btn-active {
+        border-color: hsl(var(--er));
+        background-color: hsl(var(--er));
+        color: hsl(var(--erc));
+      }
+    }
+  }
+
+  /* disabled */
+  &.btn-disabled,
+  &[disabled],
+  &:disabled {
+    pointer-events: none;
+    background-color: hsl(var(--n) / 0.2);
+    color: hsl(var(--bc) / 0.2);
+    border-color: transparent;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: hsl(var(--n) / 0.2);
+        color: hsl(var(--bc) / 0.2);
+      }
+    }
+  }
+
+  /* size */
+  &-xs {
+    padding-inline: var(--space-2);
+    height: var(--size-6);
+    min-height: var(--size-6);
+    font-size: var(--text-xs);
+  }
+  &-sm {
+    padding-inline: var(--space-3);
+    height: var(--size-8);
+    min-height: var(--size-8);
+    font-size: var(--text-sm);
+  }
+  &-md {
+    padding-inline: var(--space-4);
+    height: var(--size-10);
+    min-height: var(--size-10);
+    font-size: var(--text-base);
+  }
+  &-lg {
+    padding-inline: var(--space-6);
+    height: var(--size-12);
+    min-height: var(--size-12);
+    font-size: var(--text-lg);
+  }
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(var(--btn-focus-scale, 0.98));
+  }
+
+  40% {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* radio input and checkbox as button */
+.btn:is(input[type='checkbox']),
+.btn:is(input[type='radio']) {
+  appearance: none;
+}
+.btn:is(input[type='checkbox']):after,
+.btn:is(input[type='radio']):after {
+  content: attr(aria-label);
+}
+.btn:is(input[type='checkbox']:checked),
+.btn:is(input[type='radio']:checked) {
+  border-color: hsl(var(--p));
+  background-color: hsl(var(--p));
+  color: hsl(var(--pc));
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: hsl(var(--pf));
+      background-color: hsl(var(--pf));
+    }
+  }
+  &:focus-visible {
+    outline-color: hsl(var(--p) / 1);
+  }
+}
+
+/* loading */
+.btn .loading-lg,
+.btn.btn-lg .btn-icon {
+  width: var(--size-6);
+}
+
+.btn .loading,
+.btn .loading-md,
+.btn.btn-md .btn-icon {
+  width: var(--size-5);
+}
+
+.btn .loading-sm,
+.btn.btn-sm .btn-icon {
+  width: var(--size-4);
+}
+
+.btn .loading-xs,
+.btn.btn-xs .btn-icon {
+  width: var(--size-3);
+}
