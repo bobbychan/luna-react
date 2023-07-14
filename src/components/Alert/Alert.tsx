@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import React, { ReactNode, forwardRef } from 'react';
 import { ComponentStatus, IComponentBaseProps } from '../../global/types';
 
+const classPrefix = 'luna-alert';
+
 const iconRecord = {
   info: InformationCircleIcon,
   success: CheckCircleIcon,
@@ -29,7 +31,7 @@ interface IconNodeProps {
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
   const { status, icon } = props;
-  const iconClassName = 'alert-icon';
+  const iconClassName = `${classPrefix}-icon`;
   const iconStatus = iconRecord[status!] || null;
 
   if (icon) {
@@ -55,11 +57,11 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
  */
 export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const { className, status, icon, dataTheme, children, ...rest } = props;
-  const classes = classNames('alert', className, {
-    'alert-info': status === 'info',
-    'alert-success': status === 'success',
-    'alert-warning': status === 'warning',
-    'alert-error': status === 'error',
+  const classes = classNames(classPrefix, className, {
+    [`${classPrefix}-info`]: status === 'info',
+    [`${classPrefix}-success`]: status === 'success',
+    [`${classPrefix}-warning`]: status === 'warning',
+    [`${classPrefix}-error`]: status === 'error',
   });
 
   return (

@@ -6,6 +6,8 @@ import {
   IComponentBaseProps,
 } from '../../global/types';
 
+const classPrefix = 'luna-loading';
+
 export type LoadingProps = React.HTMLAttributes<HTMLSpanElement> &
   IComponentBaseProps & {
     size?: ComponentSize;
@@ -26,18 +28,18 @@ export const Loading = forwardRef<HTMLSpanElement, LoadingProps>(
       dataTheme,
       ...rest
     } = props;
-    const classes = classNames('loading', className, {
-      'loading-lg': size === 'lg',
-      'loading-md': size === 'md',
-      'loading-sm': size === 'sm',
-      'loading-xs': size === 'xs',
-      'loading-spinner': variant === 'spinner',
-      'loading-dots': variant === 'dots',
-      'loading-ring': variant === 'ring',
-      'loading-ball': variant === 'ball',
-      'loading-bars': variant === 'bars',
-      'loading-infinity': variant === 'infinity',
-      [`loading-${color}`]: color,
+    const classes = classNames(classPrefix, className, {
+      [`${classPrefix}-lg`]: size === 'lg',
+      [`${classPrefix}-md`]: size === 'md',
+      [`${classPrefix}-sm`]: size === 'sm',
+      [`${classPrefix}-xs`]: size === 'xs',
+      [`${classPrefix}-spinner`]: variant === 'spinner',
+      [`${classPrefix}-dots`]: variant === 'dots',
+      [`${classPrefix}-ring`]: variant === 'ring',
+      [`${classPrefix}-ball`]: variant === 'ball',
+      [`${classPrefix}-bars`]: variant === 'bars',
+      [`${classPrefix}-infinity`]: variant === 'infinity',
+      [`${classPrefix}-${color}`]: color,
     });
 
     return (

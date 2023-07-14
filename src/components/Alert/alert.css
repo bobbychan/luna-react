@@ -1,4 +1,4 @@
-.alert {
+.luna-alert {
   --alert-color: hsl(var(--bc));
   --alert-bg: hsl(var(--b2));
   --alert-radius: var(--rounded-box, 1rem);

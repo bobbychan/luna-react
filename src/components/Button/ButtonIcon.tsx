@@ -13,7 +13,7 @@ export function ButtonIcon(props: ButtonIconProps) {
       })
     : children;
 
-  return <span className="btn-icon">{_children}</span>;
+  return <span className="luna-btn-icon">{_children}</span>;
 }
 
 ButtonIcon.dispayName = 'ButtonIcon';

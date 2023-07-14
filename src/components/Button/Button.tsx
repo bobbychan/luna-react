@@ -9,6 +9,8 @@ import {
 import Loading from '../Loading';
 import { ButtonIcon } from './ButtonIcon';
 
+const classPrefix = 'luna-btn';
+
 type ITagProps = {
   a: {
     attr: React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -106,21 +108,21 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props;
 
-    const classes = classNames('btn', className, {
-      'btn-lg': size === 'lg',
-      'btn-md': size === 'md',
-      'btn-sm': size === 'sm',
-      'btn-xs': size === 'xs',
-      'btn-circle': shape === 'circle',
-      'btn-square': shape === 'square',
-      'btn-outline': variant === 'outline',
-      'btn-link': variant === 'link',
-      'btn-block': block,
-      'btn-no-animation': !animation,
-      'btn-active': active,
-      'btn-disabled': disabled,
-      'btn-loading': loading,
-      [`btn-${color}`]: color,
+    const classes = classNames(classPrefix, className, {
+      [`${classPrefix}-lg`]: size === 'lg',
+      [`${classPrefix}-md`]: size === 'md',
+      [`${classPrefix}-sm`]: size === 'sm',
+      [`${classPrefix}-xs`]: size === 'xs',
+      [`${classPrefix}-circle`]: shape === 'circle',
+      [`${classPrefix}-square`]: shape === 'square',
+      [`${classPrefix}-outline`]: variant === 'outline',
+      [`${classPrefix}-link`]: variant === 'link',
+      [`${classPrefix}-block`]: block,
+      [`${classPrefix}-no-animation`]: !animation,
+      [`${classPrefix}-active`]: active,
+      [`${classPrefix}-disabled`]: disabled,
+      [`${classPrefix}-loading`]: loading,
+      [`${classPrefix}-${color}`]: color,
     });
 
     if (VoidElementList.includes(Component)) {
