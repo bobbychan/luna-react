@@ -1,8 +1,8 @@
 import { cloneElement, isValidElement } from 'react';
 
-type ButtonIconProps = React.PropsWithChildren<{}>;
+type BadgeIconProps = React.PropsWithChildren<{}>;
 
-function ButtonIcon(props: ButtonIconProps) {
+export function BadgeIcon(props: BadgeIconProps) {
   const { children } = props;
   const _children = isValidElement(children)
     ? cloneElement<any>(children, {
@@ -11,9 +11,9 @@ function ButtonIcon(props: ButtonIconProps) {
       })
     : children;
 
-  return <span className="luna-btn-icon">{_children}</span>;
+  return <span className="luna-badge-icon">{_children}</span>;
 }
 
-ButtonIcon.dispayName = 'ButtonIcon';
+BadgeIcon.dispayName = 'BadgeIcon';
 
-export default ButtonIcon;
+export default BadgeIcon;

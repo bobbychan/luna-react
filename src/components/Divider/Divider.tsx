@@ -22,7 +22,7 @@ export interface DividerProps
 /**
  * Dividers are used to visually separate content in a list or group.
  */
-export const Divider = ({
+const Divider = ({
   type = 'horizontal',
   dashed,
   dataTheme,

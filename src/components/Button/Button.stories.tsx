@@ -79,7 +79,6 @@ export const WithBrand: Story = {
 export const WithState: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: 8 }}>
-      <Button {...args}>Default</Button>
       <Button {...args} color="info">
         Info
       </Button>

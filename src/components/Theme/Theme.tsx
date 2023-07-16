@@ -25,7 +25,7 @@ export type ThemeProps = Omit<
     onChange?: (theme: DataTheme) => void;
   };
 
-export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
+const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
   ({ children, dataTheme, onChange, className, ...props }, ref) => {
     const themeRef = useRef<HTMLDivElement>(
       (ref as MutableRefObject<HTMLDivElement>)?.current,
@@ -64,3 +64,5 @@ export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
 );
 
 Theme.displayName = 'Theme';
+
+export default Theme;

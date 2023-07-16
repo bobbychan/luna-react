@@ -1,0 +1,129 @@
+.luna-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-6);
+  font-size: var(--text-sm);
+  line-height: var(--leading-6);
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-width: 1px;
+  border-color: hsl(var(--b2));
+  background-color: hsl(var(--b1));
+  color: hsl(var(--bc));
+  border-radius: var(--size-1);
+  gap: var(--size-2);
+
+  &-neutral {
+    border-color: hsl(var(--n));
+    background-color: hsl(var(--n));
+    color: hsl(var(--nc));
+  }
+  &-primary {
+    border-color: hsl(var(--p));
+    background-color: hsl(var(--p));
+    color: hsl(var(--pc));
+  }
+  &-secondary {
+    border-color: hsl(var(--s));
+    background-color: hsl(var(--s));
+    color: hsl(var(--sc));
+  }
+  &-accent {
+    border-color: hsl(var(--a));
+    background-color: hsl(var(--a));
+    color: hsl(var(--ac));
+  }
+  &-info {
+    border-color: hsl(var(--in));
+    background-color: hsl(var(--in));
+    color: hsl(var(--inc));
+  }
+  &-success {
+    border-color: hsl(var(--su));
+    background-color: hsl(var(--su));
+    color: hsl(var(--suc));
+  }
+  &-warning {
+    border-color: hsl(var(--wa));
+    background-color: hsl(var(--wa));
+    color: hsl(var(--wac));
+  }
+  &-error {
+    border-color: hsl(var(--er));
+    background-color: hsl(var(--er));
+    color: hsl(var(--erc));
+  }
+  &-ghost {
+    border-color: hsl(var(--b2));
+    background-color: hsl(var(--b2));
+    color: hsl(var(--bc));
+  }
+
+  &-outline {
+    border-color: currentColor;
+    background-color: transparent;
+    color: currentColor;
+
+    &.luna-tag-neutral {
+      color: hsl(var(--n));
+    }
+    &.luna-badge-primary {
+      color: hsl(var(--p));
+    }
+    &.luna-badge-secondary {
+      color: hsl(var(--s));
+    }
+    &.luna-badge-accent {
+      color: hsl(var(--a));
+    }
+    &.luna-badge-info {
+      color: hsl(var(--in));
+    }
+    &.luna-badge-success {
+      color: hsl(var(--su));
+    }
+    &.luna-badge-warning {
+      color: hsl(var(--wa));
+    }
+    &.luna-badge-error {
+      color: hsl(var(--er));
+    }
+  }
+
+  &-xs {
+    height: var(--size-4);
+    font-size: var(--text-xs);
+    line-height: var(--leading-4);
+    padding-inline: 0.313rem;
+  }
+  &-sm {
+    height: var(--size-5);
+    font-size: var(--text-xs);
+    line-height: var(--leading-5);
+    padding-inline: 0.438rem;
+  }
+  &-md {
+    height: var(--size-6);
+    font-size: var(--text-sm);
+    line-height: var(--leading-6);
+    padding-inline: 0.563rem;
+  }
+  &-lg {
+    height: var(--size-8);
+    font-size: var(--text-base);
+    line-height: var(--leading-8);
+    padding-inline: 0.688rem;
+  }
+
+  &-icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  &-pill {
+    border-radius: var(--rounded-full);
+  }
+}

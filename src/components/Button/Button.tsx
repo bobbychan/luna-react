@@ -7,7 +7,7 @@ import {
   IComponentBaseProps,
 } from '../../global/types';
 import Loading from '../Loading';
-import { ButtonIcon } from './ButtonIcon';
+import ButtonIcon from './ButtonIcon';
 
 const classPrefix = 'luna-btn';
 
@@ -86,74 +86,80 @@ const VoidElementList: ElementType[] = [
 /**
  * Buttons allow the user to take actions or make choices.
  */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const {
-      shape,
-      size,
-      variant,
-      color,
-      block,
-      loading,
-      animation = true,
-      active,
-      disabled,
-      startIcon,
-      endIcon,
-      dataTheme,
-      className,
-      style,
-      children,
-      as: Component = 'button',
-      ...rest
-    } = props;
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const {
+    shape,
+    size,
+    variant,
+    color,
+    block,
+    loading,
+    animation = true,
+    active,
+    disabled,
+    startIcon,
+    endIcon,
+    dataTheme,
+    className,
+    style,
+    children,
+    as: Component = 'button',
+    ...rest
+  } = props;
 
-    const classes = classNames(classPrefix, className, {
-      [`${classPrefix}-lg`]: size === 'lg',
-      [`${classPrefix}-md`]: size === 'md',
-      [`${classPrefix}-sm`]: size === 'sm',
-      [`${classPrefix}-xs`]: size === 'xs',
-      [`${classPrefix}-circle`]: shape === 'circle',
-      [`${classPrefix}-square`]: shape === 'square',
-      [`${classPrefix}-outline`]: variant === 'outline',
-      [`${classPrefix}-link`]: variant === 'link',
-      [`${classPrefix}-block`]: block,
-      [`${classPrefix}-no-animation`]: !animation,
-      [`${classPrefix}-active`]: active,
-      [`${classPrefix}-disabled`]: disabled,
-      [`${classPrefix}-loading`]: loading,
-      [`${classPrefix}-${color}`]: color,
-    });
+  const classes = classNames(classPrefix, className, {
+    [`${classPrefix}-lg`]: size === 'lg',
+    [`${classPrefix}-md`]: size === 'md',
+    [`${classPrefix}-sm`]: size === 'sm',
+    [`${classPrefix}-xs`]: size === 'xs',
+    [`${classPrefix}-circle`]: shape === 'circle',
+    [`${classPrefix}-square`]: shape === 'square',
+    [`${classPrefix}-outline`]: variant === 'outline',
+    [`${classPrefix}-link`]: variant === 'link',
+    [`${classPrefix}-block`]: block,
+    [`${classPrefix}-no-animation`]: !animation,
+    [`${classPrefix}-active`]: active,
+    [`${classPrefix}-disabled`]: disabled,
+    [`${classPrefix}-loading`]: loading,
+    [`${classPrefix}-${color}`]: color,
+  });
 
-    if (VoidElementList.includes(Component)) {
-      return (
-        <Component
-          {...rest}
-          ref={ref}
-          data-theme={dataTheme}
-          className={classes}
-          style={style}
-          disabled={disabled}
-        />
-      );
-    } else {
-      return (
-        <Component
-          {...rest}
-          ref={ref}
-          data-theme={dataTheme}
-          className={classes}
-          style={style}
-          disabled={disabled}
-        >
-          {!startIcon && loading && <Loading variant="spinner" size={size} />}
-          {startIcon && !loading && <ButtonIcon>{startIcon}</ButtonIcon>}
-          {children}
-          {endIcon && <ButtonIcon>{endIcon}</ButtonIcon>}
-        </Component>
-      );
-    }
-  },
-);
+  if (VoidElementList.includes(Component)) {
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        data-theme={dataTheme}
+        className={classes}
+        style={style}
+        disabled={disabled}
+      />
+    );
+  } else {
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        data-theme={dataTheme}
+        className={classes}
+        style={style}
+        disabled={disabled}
+      >
+        {!startIcon && loading && <Loading variant="spinner" size={size} />}
+        {startIcon && !loading && <ButtonIcon>{startIcon}</ButtonIcon>}
+        {children}
+        {endIcon && <ButtonIcon>{endIcon}</ButtonIcon>}
+      </Component>
+    );
+  }
+});
 
 Button.displayName = 'Button';
+
+export default Button as <
+  T extends ElementType = 'button',
+  E extends HTMLElement = GetTagProps<T>['ele'],
+  A extends React.HTMLAttributes<HTMLElement> = GetTagProps<T>['attr'],
+>(
+  props: ButtonProps<T, A> & { ref?: React.Ref<E> },
+) => JSX.Element;

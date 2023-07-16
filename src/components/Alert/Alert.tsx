@@ -55,7 +55,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
 /**
  * Alert informs users about important events.
  */
-export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
+const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const { className, status, icon, dataTheme, children, ...rest } = props;
   const classes = classNames(classPrefix, className, {
     [`${classPrefix}-info`]: status === 'info',
@@ -79,3 +79,5 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
 });
 
 Alert.displayName = 'Alert';
+
+export default Alert;
