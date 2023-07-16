@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const postcss = require('gulp-postcss');
+const sorting = require('postcss-sorting');
 const ts = require('gulp-typescript');
 const prettier = require('gulp-prettier');
 const nested = require('postcss-nested');
@@ -9,10 +10,18 @@ const through = require('through2');
 const autoprefixer = require('autoprefixer');
 
 const tsconfig = require('./tsconfig.lib.json');
+const sortingConfig = require('./postcss-sorting.config.js');
 const packageJson = require('./package.json');
 
 function clean() {
   return del('./lib/**');
+}
+
+function sortCSS() {
+  return gulp
+    .src(['src/components/**/*.css'])
+    .pipe(postcss([sorting(sortingConfig)]))
+    .pipe(gulp.dest('src/components'));
 }
 
 function buildESM() {
@@ -22,7 +31,7 @@ function buildESM() {
   });
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
+      ignore: ['**/*.stories.tsx', '**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
     .pipe(gulp.dest('lib/esm/'));
@@ -48,7 +57,7 @@ function buildDeclaration() {
   });
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
+      ignore: ['**/*.stories.tsx', '**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
     .pipe(gulp.dest('lib/esm/'))
@@ -92,6 +101,7 @@ function generatePackageJSON() {
 }
 
 exports.default = gulp.series(
+  sortCSS,
   clean,
   buildESM,
   buildCJS,

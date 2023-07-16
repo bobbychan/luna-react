@@ -10,10 +10,10 @@
   width: 100%;
   padding: var(--space-4);
   background-color: var(--alert-bg);
+  border-radius: var(--alert-radius);
   color: var(--alert-color);
   text-align: center;
   justify-items: center;
-  border-radius: var(--alert-radius);
 
   @media (min-width: 640px) {
     grid-auto-flow: column;

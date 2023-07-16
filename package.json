@@ -21,9 +21,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:lib": "npm run postcss && npm run prettier && gulp",
+    "build:lib": "npm run prettier && gulp",
     "prettier": "prettier --write \"src/**/*.{js,jsx,tsx,ts,md,json}\"",
-    "postcss": "postcss --config src --replace src/components/**/*.css",
     "storybook": "storybook dev -p 3001",
     "build-storybook": "storybook build"
   },
