@@ -52,27 +52,52 @@ export const Default: Story = {
 
 export const WithBrand: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', gap: 8 }}>
-      <Button {...args}>Default</Button>
-      <Button {...args} color="neutral">
-        Neutral
-      </Button>
-      <Button {...args} color="primary">
-        Primary
-      </Button>
-      <Button {...args} color="secondary">
-        Secondary
-      </Button>
-      <Button {...args} color="accent">
-        Accent
-      </Button>
-      <Button {...args} color="ghost">
-        Ghost
-      </Button>
-      <Button {...args} variant="link">
-        Link
-      </Button>
-    </div>
+    <>
+      <div style={{ display: 'flex', gap: 8, marginBottom: '1rem' }}>
+        <Button {...args}>Default</Button>
+        <Button {...args} color="neutral">
+          Neutral
+        </Button>
+        <Button {...args} color="primary">
+          Primary
+        </Button>
+        <Button {...args} color="secondary">
+          Secondary
+        </Button>
+        <Button {...args} color="accent">
+          Accent
+        </Button>
+        <Button {...args} color="ghost">
+          Ghost
+        </Button>
+        <Button {...args} variant="link">
+          Link
+        </Button>
+      </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button {...args} pill>
+          Default
+        </Button>
+        <Button {...args} color="neutral" pill>
+          Neutral
+        </Button>
+        <Button {...args} color="primary" pill>
+          Primary
+        </Button>
+        <Button {...args} color="secondary" pill>
+          Secondary
+        </Button>
+        <Button {...args} color="accent" pill>
+          Accent
+        </Button>
+        <Button {...args} color="ghost" pill>
+          Ghost
+        </Button>
+        <Button {...args} variant="link" pill>
+          Link
+        </Button>
+      </div>
+    </>
   ),
 };
 
@@ -200,9 +225,16 @@ export const WithIcon: Story = {
         {...args}
         shape="circle"
         color="primary"
+        size="lg"
         endIcon={<MagnifyingGlassIcon />}
       />
-      <Button {...args} shape="square" color="success" endIcon={<PlayIcon />} />
+      <Button
+        {...args}
+        shape="square"
+        color="success"
+        size="lg"
+        endIcon={<PlayIcon />}
+      />
     </div>
   ),
 };
@@ -285,6 +317,25 @@ export const WithLoading: Story = {
           loading
         </Button>
         <Button {...args} color="primary" shape="circle" disabled />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          marginBottom: '1rem',
+        }}
+      >
+        <Button
+          {...args}
+          loading="auto"
+          color="primary"
+          onClick={async () => {
+            await new Promise((resolve) => setTimeout(resolve, 3000));
+          }}
+        >
+          Promise loading
+        </Button>
       </div>
     </>
   ),

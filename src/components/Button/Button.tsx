@@ -1,11 +1,12 @@
 import classNames from 'classnames';
-import React, { ElementType, ReactNode, forwardRef } from 'react';
+import React, { ElementType, ReactNode, forwardRef, useState } from 'react';
 import {
   ComponentColor,
   ComponentShape,
   ComponentSize,
   IComponentBaseProps,
 } from '../../global/types';
+import { isPromise } from '../../utils/validate';
 import Loading from '../Loading';
 import ButtonIcon from './ButtonIcon';
 
@@ -49,20 +50,22 @@ export type GetTagProps<T extends ElementType> = T extends keyof ITagProps
 export type ButtonProps<
   T extends ElementType = 'button',
   A extends React.HTMLAttributes<HTMLElement> = GetTagProps<T>['attr'],
-> = Omit<A, 'color' | 'size'> &
+> = Omit<A, 'color' | 'size' | 'onClick'> &
   IComponentBaseProps & {
     shape?: ComponentShape;
     size?: ComponentSize;
     variant?: 'outline' | 'link';
     color?: ComponentColor;
     block?: boolean;
-    loading?: boolean;
+    pill?: boolean;
+    loading?: boolean | 'auto';
     animation?: boolean;
     active?: boolean;
     disabled?: boolean;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     as?: T;
+    onClick?: (event: React.MouseEvent) => void | Promise<void> | unknown;
   };
 
 //  https://developer.mozilla.org/en-US/docs/Glossary/Void_element
@@ -93,7 +96,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     variant,
     color,
     block,
-    loading,
+    pill,
     animation = true,
     active,
     disabled,
@@ -107,11 +110,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     ...rest
   } = props;
 
+  const [innerLoading, setInnerLoading] = useState(false);
+  const loading = props.loading === 'auto' ? innerLoading : props.loading;
+
   const classes = classNames(classPrefix, className, {
     [`${classPrefix}-lg`]: size === 'lg',
     [`${classPrefix}-md`]: size === 'md',
     [`${classPrefix}-sm`]: size === 'sm',
     [`${classPrefix}-xs`]: size === 'xs',
+    [`${classPrefix}-pill`]: pill,
     [`${classPrefix}-circle`]: shape === 'circle',
     [`${classPrefix}-square`]: shape === 'square',
     [`${classPrefix}-outline`]: variant === 'outline',
@@ -124,6 +131,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     [`${classPrefix}-${color}`]: color,
   });
 
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+    if (!props.onClick) return;
+
+    const promise = props.onClick(e);
+
+    if (isPromise(promise)) {
+      try {
+        setInnerLoading(true);
+        await promise;
+        setInnerLoading(false);
+      } catch (e) {
+        setInnerLoading(false);
+        throw e;
+      }
+    }
+  };
+
   if (VoidElementList.includes(Component)) {
     return (
       <Component
@@ -133,6 +157,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         className={classes}
         style={style}
         disabled={disabled}
+        onClick={handleClick}
       />
     );
   } else {
@@ -144,6 +169,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         className={classes}
         style={style}
         disabled={disabled}
+        onClick={handleClick}
       >
         {!startIcon && loading && <Loading variant="spinner" size={size} />}
         {startIcon && !loading && <ButtonIcon>{startIcon}</ButtonIcon>}

@@ -8,6 +8,14 @@ import './global';
 export { default as Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
 
+// Actions > Dialog
+export { default as Dialog } from './components/Dialog';
+export type { DialogProps } from './components/Dialog';
+
+// Actions > Modal
+export { default as Modal } from './components/Modal';
+export type { ModalProps } from './components/Modal';
+
 // ----------------------- < Data Display > ----------------------- //
 
 // Data Display > Alert

@@ -1,11 +1,12 @@
 .luna-btn {
   --btn-focus-scale: 0.95;
   --animation-btn: 0.25s;
+  --gap: var(--size-2);
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: var(--size-2);
+  gap: var(--gap);
   flex-shrink: 0;
   height: var(--size-10);
   min-height: var(--size-10);
@@ -43,65 +44,6 @@
   /* icon */
   &-icon {
     width: var(--size-5);
-  }
-
-  /* shapes */
-  &-square {
-    width: var(--size-10);
-    height: var(--size-10);
-    padding: 0;
-
-    &:where(.luna-btn-xs) {
-      width: var(--size-6);
-      height: var(--size-6);
-      padding: 0;
-    }
-    &:where(.luna-btn-sm) {
-      width: var(--size-8);
-      height: var(--size-8);
-      padding: 0;
-    }
-    &:where(.luna-btn-md) {
-      width: var(--size-10);
-      height: var(--size-10);
-      padding: 0;
-    }
-    &:where(.luna-btn-lg) {
-      width: var(--size-12);
-      height: var(--size-12);
-      padding: 0;
-    }
-  }
-  &-circle {
-    width: var(--size-10);
-    height: var(--size-10);
-    padding: 0;
-    border-radius: var(--rounded-full);
-
-    &:where(.luna-btn-xs) {
-      width: var(--size-6);
-      height: var(--size-6);
-      padding: 0;
-      border-radius: var(--rounded-full);
-    }
-    &:where(.luna-btn-sm) {
-      width: var(--size-8);
-      height: var(--size-8);
-      padding: 0;
-      border-radius: var(--rounded-full);
-    }
-    &:where(.luna-btn-md) {
-      width: var(--size-10);
-      height: var(--size-10);
-      padding: 0;
-      border-radius: var(--rounded-full);
-    }
-    &:where(.luna-btn-lg) {
-      width: var(--size-12);
-      height: var(--size-12);
-      padding: 0;
-      border-radius: var(--rounded-full);
-    }
   }
 
   &-block {
@@ -452,28 +394,84 @@
 
   /* size */
   &-xs {
+    --gap: var(--size-1);
     height: var(--size-6);
     min-height: var(--size-6);
     font-size: var(--text-xs);
     padding-inline: var(--space-2);
   }
   &-sm {
+    --gap: var(--size-1-5);
     height: var(--size-8);
     min-height: var(--size-8);
     font-size: var(--text-sm);
     padding-inline: var(--space-3);
   }
   &-md {
+    --gap: var(--size-2);
     height: var(--size-10);
     min-height: var(--size-10);
     font-size: var(--text-base);
     padding-inline: var(--space-4);
   }
   &-lg {
+    --gap: var(--size-2-5);
     height: var(--size-12);
     min-height: var(--size-12);
     font-size: var(--text-lg);
     padding-inline: var(--space-6);
+  }
+
+  /* pill */
+  &-pill {
+    border-radius: var(--rounded-full);
+  }
+
+  /* shapes */
+  &-square {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: 0;
+
+    &:where(.luna-btn-xs) {
+      width: var(--size-6);
+      height: var(--size-6);
+    }
+    &:where(.luna-btn-sm) {
+      width: var(--size-8);
+      height: var(--size-8);
+    }
+    &:where(.luna-btn-md) {
+      width: var(--size-10);
+      height: var(--size-10);
+    }
+    &:where(.luna-btn-lg) {
+      width: var(--size-12);
+      height: var(--size-12);
+    }
+  }
+  &-circle {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: 0;
+    border-radius: var(--rounded-full);
+
+    &:where(.luna-btn-xs) {
+      width: var(--size-6);
+      height: var(--size-6);
+    }
+    &:where(.luna-btn-sm) {
+      width: var(--size-8);
+      height: var(--size-8);
+    }
+    &:where(.luna-btn-md) {
+      width: var(--size-10);
+      height: var(--size-10);
+    }
+    &:where(.luna-btn-lg) {
+      width: var(--size-12);
+      height: var(--size-12);
+    }
   }
 }
 
@@ -503,7 +501,7 @@
   }
 }
 
-/* loading */
+/* loading and icon */
 .luna-btn .luna-loading-lg,
 .luna-btn.luna-btn-lg .luna-btn-icon {
   width: var(--size-6);
@@ -517,12 +515,12 @@
 
 .luna-btn .luna-loading-sm,
 .luna-btn.luna-btn-sm .luna-btn-icon {
-  width: var(--size-4);
+  width: var(--size-5);
 }
 
 .luna-btn .luna-loading-xs,
 .luna-btn.luna-btn-xs .luna-btn-icon {
-  width: var(--size-3);
+  width: var(--size-4);
 }
 
 @keyframes button-pop {
