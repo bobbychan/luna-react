@@ -66,9 +66,9 @@ export const Dashed: Story = {
   args: {
     dashed: true,
     style: {
-      '--border-color': '#FFC107',
-      '--border-width': '3px',
-      '--gap': '24px',
+      '--divider-border-color': '#FFC107',
+      '--divider-border-width': '3px',
+      '--divider-gap': '24px',
     },
     children: 'OR',
   },

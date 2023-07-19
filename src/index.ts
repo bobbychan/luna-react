@@ -30,6 +30,10 @@ export type { LoadingProps } from './components/Loading';
 export { default as Badge } from './components/Badge';
 export type { BadgeProps } from './components/Badge';
 
+// Data Display > Popover
+export { default as Popover } from './components/Popover';
+export type { PopoverProps } from './components/Popover';
+
 // ----------------------- < Layout > ----------------------- //
 
 // Layout > Divider

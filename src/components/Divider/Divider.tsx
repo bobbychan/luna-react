@@ -16,7 +16,12 @@ export interface DividerProps
    */
   dashed?: boolean;
   style?: CSSProperties &
-    Partial<Record<'--gap' | '--border-color' | '--border-width', string>>;
+    Partial<
+      Record<
+        '--divider-gap' | '--divider-border-color' | '--divider-border-width',
+        string
+      >
+    >;
 }
 
 /**

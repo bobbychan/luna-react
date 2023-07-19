@@ -127,7 +127,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                     size="sm"
                     shape="circle"
                     endIcon={<XMarkIcon />}
-                    className={`${classPrefix}-close-icon`}
+                    className={`${classPrefix}-close-btn`}
                     onClick={onClose}
                   />
                 )}

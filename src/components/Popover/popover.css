@@ -1,0 +1,28 @@
+.luna-popover {
+  --popover-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  background-color: hsl(var(--b1));
+  border-radius: var(--popover-radius);
+  z-index: 999;
+}
+
+.luna-popover .luna-popover-header {
+  min-width: var(--size-48);
+  padding-inline-start: var(--size-3);
+  padding-inline-end: var(--size-10);
+  padding-block: var(--size-2-5);
+  border-bottom-width: 1px;
+  font-weight: var(--font-semibold);
+  word-break: break-all;
+}
+
+.luna-popover .luna-popover-body {
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2-5);
+}
+
+.luna-popover .luna-popover-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
