@@ -7,15 +7,16 @@ import {
   shift,
   useClick,
   useDismiss,
-  useFloating,
   useHover,
   useInteractions,
   useRole,
 } from '@floating-ui/react';
 import React, { useState } from 'react';
+import { useFloating } from '../../utils/use-floating';
 import { PopoverBody } from './PopoverBody';
 import { PopoverCloseButton } from './PopoverCloseButton';
 import { PopoverContent } from './PopoverContent';
+import { PopoverContext } from './PopoverContext';
 import { PopoverHeader } from './PopoverHeader';
 import { PopoverTrigger } from './PopoverTrigger';
 
@@ -40,7 +41,7 @@ export function usePopover({
   modal,
   open: controlledOpen,
   onOpenChange: setControlledOpen,
-}: PopoverOptions = {}) {
+}: PopoverOptions) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
   const [labelId, setLabelId] = useState<string | undefined>();
   const [descriptionId, setDescriptionId] = useState<string | undefined>();
@@ -93,27 +94,6 @@ export function usePopover({
     [open, setOpen, interactions, data, modal, labelId, descriptionId],
   );
 }
-
-type ContextType =
-  | (ReturnType<typeof usePopover> & {
-      setLabelId: React.Dispatch<React.SetStateAction<string | undefined>>;
-      setDescriptionId: React.Dispatch<
-        React.SetStateAction<string | undefined>
-      >;
-    })
-  | null;
-
-const PopoverContext = React.createContext<ContextType>(null);
-
-export const usePopoverContext = () => {
-  const context = React.useContext(PopoverContext);
-
-  if (context == null) {
-    throw new Error('Popover components must be wrapped in <Popover />');
-  }
-
-  return context;
-};
 
 export function Popover({
   children,

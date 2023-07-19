@@ -4,7 +4,6 @@ import {
   FloatingPortal,
   useClick,
   useDismiss,
-  useFloating,
   useInteractions,
   useMergeRefs,
   useRole,
@@ -15,6 +14,7 @@ import classNames from 'classnames';
 import type { MutableRefObject } from 'react';
 import React, { useState } from 'react';
 import { IComponentBaseProps } from '../../global/types';
+import { useFloating } from '../../utils/use-floating';
 import Button from '../Button';
 import ModalBody from './ModalBody';
 import { ModalContext } from './ModalContext';

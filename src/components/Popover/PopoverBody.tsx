@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useId } from 'react';
-import { usePopoverContext } from './Popover';
+import { usePopoverContext } from './PopoverContext';
 
 export const PopoverBody = React.forwardRef<
   HTMLDivElement,

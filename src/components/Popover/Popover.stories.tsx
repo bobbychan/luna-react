@@ -38,7 +38,7 @@ const DefaultComponent = (args: PopoverProps) => {
             <p>Popover body</p>
             <p>Popover body</p>
           </Popover.Body>
-          <Popover.CloseButton></Popover.CloseButton>
+          <Popover.CloseButton />
         </Popover.Content>
       </Popover>
     </div>

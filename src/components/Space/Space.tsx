@@ -3,6 +3,7 @@
  */
 
 import classNames from 'classnames';
+import type { CSSProperties } from 'react';
 import React from 'react';
 import { ComponentSize } from '../../global/types';
 
@@ -97,9 +98,10 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     },
   );
 
-  const gapStyle: React.CSSProperties = {};
-  gapStyle.columnGap = horizontalSize;
-  gapStyle.rowGap = verticalSize;
+  const gapStyle: CSSProperties = {
+    columnGap: horizontalSize,
+    rowGap: verticalSize,
+  };
 
   return (
     <div

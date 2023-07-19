@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { usePopoverContext } from './Popover';
+import { usePopoverContext } from './PopoverContext';
 
 export const PopoverHeader = React.forwardRef<
   HTMLHeadingElement,

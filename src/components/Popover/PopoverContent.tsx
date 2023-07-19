@@ -6,9 +6,9 @@ import {
 import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
 import { IComponentBaseProps } from '.././../global/types';
-import { usePopoverContext } from './Popover';
+import { usePopoverContext } from './PopoverContext';
 
-interface PopoverContentProps
+export interface PopoverContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     IComponentBaseProps {
   style?: CSSProperties & Partial<Record<'--popover-radius', string>>;

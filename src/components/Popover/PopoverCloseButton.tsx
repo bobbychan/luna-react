@@ -2,7 +2,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import React from 'react';
 import Button, { ButtonProps } from '../Button';
-import { usePopoverContext } from './Popover';
+import { usePopoverContext } from './PopoverContext';
 
 export const PopoverCloseButton = React.forwardRef<
   HTMLButtonElement,
@@ -14,7 +14,7 @@ export const PopoverCloseButton = React.forwardRef<
   return (
     <Button
       color="ghost"
-      size="sm"
+      size="xs"
       shape="circle"
       endIcon={<XMarkIcon />}
       className={classes}

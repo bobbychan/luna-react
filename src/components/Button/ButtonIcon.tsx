@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement } from 'react';
+import React, { cloneElement, isValidElement } from 'react';
 
 type ButtonIconProps = React.PropsWithChildren<{}>;
 

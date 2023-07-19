@@ -1,20 +1,20 @@
 .luna-modal {
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 5em);
-  grid-column-start: 1;
   grid-row-start: 1;
+  grid-column-start: 1;
+  opacity: 1;
+  transform: scale(1);
   width: 91.666667%;
   max-width: var(--size-lg);
-  transform: scale(1);
-  background-color: hsl(var(--b1));
-  transition-property: opacity, transform;
-  transition-duration: 0.25s;
+  max-height: calc(100vh - 5em);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+  transition-property: opacity, transform;
+  background-color: hsl(var(--b1));
   border-radius: var(--rounded-box, 1rem);
   box-shadow: #00000040 0 25px 50px -12px;
   overscroll-behavior: contain;
-  opacity: 1;
 
   &.luna-modal-sm {
     max-width: var(--size-sm);
@@ -49,18 +49,18 @@
 }
 
 .luna-modal-overlay {
-  background-color: rgba(0, 0, 0, 0.45);
-  opacity: 1;
-  transition-property: opacity;
-  transition-timing-function: ease-out;
   display: grid;
-  height: 100%;
-  max-height: none;
+  align-items: center;
+  z-index: 999;
+  opacity: 1;
   width: 100%;
   max-width: none;
-  align-items: center;
+  height: 100%;
+  max-height: none;
+  transition-timing-function: ease-out;
+  transition-property: opacity;
+  background-color: rgba(0, 0, 0, 0.45);
   justify-items: center;
-  z-index: 999;
 }
 
 .luna-modal-overlay[data-status='open'],
@@ -83,8 +83,8 @@
 
 .luna-modal-header {
   padding: 1.25rem;
-  font-weight: var(--font-bold);
   font-size: var(--text-lg);
+  font-weight: var(--font-bold);
 }
 
 .luna-modal-body {
@@ -95,8 +95,8 @@
 
 .luna-modal-footer {
   display: flex;
-  padding: 1.5rem;
   justify-content: flex-end;
+  padding: 1.5rem;
 }
 
 .luna-modal-footer > :not([hidden]) ~ :not([hidden]) {

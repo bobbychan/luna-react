@@ -1,69 +1,69 @@
 .luna-badge {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  height: var(--size-6);
-  font-size: var(--text-sm);
-  line-height: var(--leading-6);
+  align-items: center;
+  gap: var(--size-2);
   width: fit-content;
-  padding-left: 0.563rem;
+  height: var(--size-6);
   padding-right: 0.563rem;
+  padding-left: 0.563rem;
+  background-color: hsl(var(--b1));
   border-width: 1px;
   border-color: hsl(var(--b2));
-  background-color: hsl(var(--b1));
-  color: hsl(var(--bc));
   border-radius: var(--size-1);
-  gap: var(--size-2);
+  font-size: var(--text-sm);
+  line-height: var(--leading-6);
+  color: hsl(var(--bc));
 
   &-neutral {
-    border-color: hsl(var(--n));
     background-color: hsl(var(--n));
+    border-color: hsl(var(--n));
     color: hsl(var(--nc));
   }
   &-primary {
-    border-color: hsl(var(--p));
     background-color: hsl(var(--p));
+    border-color: hsl(var(--p));
     color: hsl(var(--pc));
   }
   &-secondary {
-    border-color: hsl(var(--s));
     background-color: hsl(var(--s));
+    border-color: hsl(var(--s));
     color: hsl(var(--sc));
   }
   &-accent {
-    border-color: hsl(var(--a));
     background-color: hsl(var(--a));
+    border-color: hsl(var(--a));
     color: hsl(var(--ac));
   }
   &-info {
-    border-color: hsl(var(--in));
     background-color: hsl(var(--in));
+    border-color: hsl(var(--in));
     color: hsl(var(--inc));
   }
   &-success {
-    border-color: hsl(var(--su));
     background-color: hsl(var(--su));
+    border-color: hsl(var(--su));
     color: hsl(var(--suc));
   }
   &-warning {
-    border-color: hsl(var(--wa));
     background-color: hsl(var(--wa));
+    border-color: hsl(var(--wa));
     color: hsl(var(--wac));
   }
   &-error {
-    border-color: hsl(var(--er));
     background-color: hsl(var(--er));
+    border-color: hsl(var(--er));
     color: hsl(var(--erc));
   }
   &-ghost {
-    border-color: hsl(var(--b2));
     background-color: hsl(var(--b2));
+    border-color: hsl(var(--b2));
     color: hsl(var(--bc));
   }
 
   &-outline {
-    border-color: currentColor;
     background-color: transparent;
+    border-color: currentColor;
     color: currentColor;
 
     &.luna-tag-neutral {
@@ -118,9 +118,9 @@
   }
 
   &-icon {
+    flex-shrink: 0;
     width: 1em;
     height: 1em;
-    flex-shrink: 0;
   }
 
   &-pill {

@@ -6,11 +6,11 @@
   &-horizontal {
     display: flex;
     align-items: center;
-    margin-block: var(--divider-gap);
     border-width: 0;
     border-style: solid;
     border-color: var(--divider-border-color);
     font-size: 14px;
+    margin-block: var(--divider-gap);
 
     &::before,
     &::after {
@@ -33,10 +33,10 @@
     position: relative;
     top: -0.06em;
     height: 0.9em;
-    margin-inline: var(--divider-gap);
     border-top: 0;
     border-left: 1px solid var(--divider-border-color);
     vertical-align: middle;
+    margin-inline: var(--divider-gap);
   }
 
   &-dashed {

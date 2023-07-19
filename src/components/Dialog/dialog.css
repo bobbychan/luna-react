@@ -1,40 +1,40 @@
 .luna-dialog {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  margin: 0;
   display: grid;
-  height: 100%;
-  max-height: none;
+  position: fixed;
+  z-index: 999;
+  opacity: 0;
+  overflow-y: hidden;
   width: 100%;
   max-width: none;
-  justify-items: center;
+  height: 100%;
+  max-height: none;
+  margin: 0;
   padding: 0;
-  opacity: 0;
-  overscroll-behavior: contain;
-  z-index: 999;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-property: transform, opacity, visibility;
   background-color: transparent;
   color: inherit;
-  transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: transform, opacity, visibility;
-  overflow-y: hidden;
+  pointer-events: none;
+  inset: 0;
+  justify-items: center;
+  overscroll-behavior: contain;
 
   &:not(dialog:not(.luna-dialog-open)),
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.3);
     animation: dialog-pop 0.2s ease-out;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
 
 .luna-dialog-overlay {
-  z-index: -1;
-  grid-column-start: 1;
-  grid-row-start: 1;
   display: grid;
   align-self: stretch;
-  justify-self: stretch;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  z-index: -1;
   color: transparent;
+  justify-self: stretch;
 }
 
 :where(.luna-dialog) {
@@ -44,18 +44,18 @@
 .luna-dialog-box {
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 5em);
-  grid-column-start: 1;
   grid-row-start: 1;
+  grid-column-start: 1;
+  transform: scale(0.9);
   width: 91.666667%;
   max-width: var(--size-lg);
-  transform: scale(0.9);
-  background-color: hsl(var(--b1));
+  max-height: calc(100vh - 5em);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color,
     text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
     backdrop-filter, -webkit-backdrop-filter;
-  transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: hsl(var(--b1));
   border-radius: var(--rounded-box, 1rem);
   box-shadow: #00000040 0 25px 50px -12px;
   overscroll-behavior: contain;
@@ -95,9 +95,9 @@
 .luna-dialog-open,
 .luna-dialog:target,
 .luna-dialog[open] {
-  pointer-events: auto;
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 :root:has(:is(.luna-dialog-open, .luna-dialog:target, .luna-dialog[open])) {
@@ -112,8 +112,8 @@
 
 .luna-dialog-header {
   padding: 1.25rem;
-  font-weight: var(--font-bold);
   font-size: var(--text-lg);
+  font-weight: var(--font-bold);
 }
 
 .luna-dialog-body {
@@ -124,8 +124,8 @@
 
 .luna-dialog-footer {
   display: flex;
-  padding: 1.5rem;
   justify-content: flex-end;
+  padding: 1.5rem;
 }
 
 .luna-dialog-footer > :not([hidden]) ~ :not([hidden]) {

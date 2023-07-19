@@ -54,6 +54,8 @@ function buildDeclaration() {
     module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
+    // https://github.com/microsoft/TypeScript/issues/47663
+    preserveSymlinks: true,
   });
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
