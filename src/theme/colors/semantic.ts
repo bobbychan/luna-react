@@ -1,32 +1,32 @@
-import type {ThemeColors, SemanticBaseColors} from "./types";
+import type { SemanticBaseColors, ThemeColors } from './types';
 
-import {readableColor} from "color2k";
+import { readableColor } from 'color2k';
 
-import {swapColorValues} from "../utils/object";
+import { swapColorValues } from '../utils/object';
 
-import {commonColors as common} from "./common";
+import { commonColors as common } from './common';
 
 const base: SemanticBaseColors = {
   light: {
     background: {
-      DEFAULT: "#FFFFFF",
+      DEFAULT: '#FFFFFF',
     },
     foreground: {
       ...common.zinc,
-      DEFAULT: "#11181C",
+      DEFAULT: '#11181C',
     },
     divider: {
-      DEFAULT: "rgba(17, 17, 17, 0.15)",
+      DEFAULT: '#dcdcdc',
     },
     focus: {
       DEFAULT: common.blue[500],
     },
     overlay: {
-      DEFAULT: "#000000",
+      DEFAULT: '#000000',
     },
     content1: {
-      DEFAULT: "#FFFFFF",
-      foreground: "#11181C",
+      DEFAULT: '#FFFFFF',
+      foreground: '#11181C',
     },
     content2: {
       DEFAULT: common.zinc[100],
@@ -43,20 +43,20 @@ const base: SemanticBaseColors = {
   },
   dark: {
     background: {
-      DEFAULT: "#000000",
+      DEFAULT: '#000000',
     },
     foreground: {
       ...swapColorValues(common.zinc),
-      DEFAULT: "#ECEDEE",
+      DEFAULT: '#ECEDEE',
     },
     focus: {
       DEFAULT: common.blue[500],
     },
     overlay: {
-      DEFAULT: "#000000",
+      DEFAULT: '#000000',
     },
     divider: {
-      DEFAULT: "rgba(255, 255, 255, 0.15)",
+      DEFAULT: '#272a2f',
     },
     content1: {
       DEFAULT: common.zinc[900],
