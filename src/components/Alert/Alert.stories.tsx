@@ -1,14 +1,34 @@
-import { BellIcon } from '@heroicons/react/24/solid';
+import {
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+} from '@heroicons/react/24/outline';
 import type { Meta, StoryObj } from '@storybook/react';
-import Alert from '.';
+import { Alert, AlertProps } from '.';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Data Display/Alert',
+  title: 'Components/Alert',
   component: Alert,
   tags: ['autodocs'],
   argTypes: {
-    icon: {
-      control: false,
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['flat', 'solid', 'bordered'],
+    },
+    color: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
+    },
+    radius: {
+      control: {
+        type: 'select',
+      },
+      options: ['none', 'sm', 'md', 'lg', 'full'],
     },
   },
 };
@@ -22,38 +42,50 @@ export const Default: Story = {
   },
 };
 
-export const WithIcons: Story = {
+const Template = (args: AlertProps) => (
+  <div className="flex flex-col gap-4 items-center">
+    <Alert {...args} icon={<InformationCircleIcon className="shrink-0 w-6 h-6" />}>
+      New software update available.
+    </Alert>
+    <Alert {...args} color="primary" icon={<InformationCircleIcon className="shrink-0 w-6 h-6" />}>
+      New software update available.
+    </Alert>
+    <Alert
+      {...args}
+      color="secondary"
+      icon={<InformationCircleIcon className="shrink-0 w-6 h-6" />}
+    >
+      New software update available.
+    </Alert>
+    <Alert {...args} color="success" icon={<CheckCircleIcon className="shrink-0 w-6 h-6" />}>
+      Your purchase has been confirmed!
+    </Alert>
+    <Alert {...args} color="warning" icon={<ExclamationCircleIcon className="shrink-0 w-6 h-6" />}>
+      Warning: Invalid email address!
+    </Alert>
+    <Alert {...args} color="danger" icon={<XCircleIcon className="shrink-0 w-6 h-6" />}>
+      Error! Task failed successfully.
+    </Alert>
+  </div>
+);
+
+export const Flat: Story = {
   args: {
-    icon: <BellIcon />,
-    status: 'success',
-    children: 'An example alert with an icon — check it out!',
+    variant: 'flat',
   },
+  render: Template,
 };
 
-export const InfoColor: Story = {
+export const Solid: Story = {
   args: {
-    status: 'info',
-    children: <span>New software update available.</span>,
+    variant: 'solid',
   },
+  render: Template,
 };
 
-export const SuccessColor: Story = {
+export const Bordered: Story = {
   args: {
-    status: 'success',
-    children: <span>Successfully updated!</span>,
+    variant: 'bordered',
   },
-};
-
-export const WarningColor: Story = {
-  args: {
-    status: 'warning',
-    children: <span>Warning: Invalid email address!</span>,
-  },
-};
-
-export const ErrorColor: Story = {
-  args: {
-    status: 'error',
-    children: <span>Error: Invalid email address!</span>,
-  },
+  render: Template,
 };

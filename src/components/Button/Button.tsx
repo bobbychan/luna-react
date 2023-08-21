@@ -1,191 +1,43 @@
-import classNames from 'classnames';
-import React, { ElementType, ReactNode, forwardRef, useState } from 'react';
-import {
-  ComponentColor,
-  ComponentShape,
-  ComponentSize,
-  IComponentBaseProps,
-} from '../../global/types';
-import { isPromise } from '../../utils/validate';
-import Loading from '../Loading';
-import ButtonIcon from './ButtonIcon';
+import { forwardRef } from '../../utils';
+import { Loader } from '../loader';
+import { Ripple } from '../ripple';
 
-const classPrefix = 'luna-btn';
+import { UseButtonProps, useButton } from './use-button';
 
-type ITagProps = {
-  a: {
-    attr: React.AnchorHTMLAttributes<HTMLAnchorElement>;
-    ele: HTMLAnchorElement;
-  };
-  button: {
-    attr: React.ButtonHTMLAttributes<HTMLButtonElement>;
-    ele: HTMLButtonElement;
-  };
-  div: {
-    attr: React.HTMLAttributes<HTMLDivElement>;
-    ele: HTMLDivElement;
-  };
-  img: {
-    attr: React.ImgHTMLAttributes<HTMLImageElement>;
-    ele: HTMLImageElement;
-  };
-  input: {
-    attr: React.InputHTMLAttributes<HTMLInputElement>;
-    ele: HTMLInputElement;
-  };
-  label: {
-    attr: React.LabelHTMLAttributes<HTMLLabelElement>;
-    ele: HTMLLabelElement;
-  };
-  span: {
-    attr: React.HTMLAttributes<HTMLSpanElement>;
-    ele: HTMLSpanElement;
-  };
-};
+export interface ButtonProps extends UseButtonProps {}
 
-export type GetTagProps<T extends ElementType> = T extends keyof ITagProps
-  ? ITagProps[T]
-  : ITagProps['button'];
-
-export type ButtonProps<
-  T extends ElementType = 'button',
-  A extends React.HTMLAttributes<HTMLElement> = GetTagProps<T>['attr'],
-> = Omit<A, 'color' | 'size' | 'onClick'> &
-  IComponentBaseProps & {
-    shape?: ComponentShape;
-    size?: ComponentSize;
-    variant?: 'outline' | 'link';
-    color?: ComponentColor;
-    block?: boolean;
-    pill?: boolean;
-    loading?: boolean | 'auto';
-    animation?: boolean;
-    active?: boolean;
-    disabled?: boolean;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
-    as?: T;
-    onClick?: (event: React.MouseEvent) => void | Promise<void> | unknown;
-  };
-
-//  https://developer.mozilla.org/en-US/docs/Glossary/Void_element
-const VoidElementList: ElementType[] = [
-  'area',
-  'base',
-  'br',
-  'col',
-  'embed',
-  'hr',
-  'img',
-  'input',
-  'link',
-  'meta',
-  'param',
-  'source',
-  'track',
-  'wbr',
-];
-
-/**
- * Buttons allow the user to take actions or make choices.
- */
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button = forwardRef<'button', ButtonProps>((props, ref) => {
   const {
-    shape,
-    size,
-    variant,
-    color,
-    block,
-    pill,
-    animation = true,
-    active,
-    disabled,
-    startIcon,
-    endIcon,
-    dataTheme,
-    className,
-    style,
+    Component,
+    domRef,
     children,
-    as: Component = 'button',
-    ...rest
-  } = props;
-
-  const [innerLoading, setInnerLoading] = useState(false);
-  const loading = props.loading === 'auto' ? innerLoading : props.loading;
-
-  const classes = classNames(classPrefix, className, {
-    [`${classPrefix}-lg`]: size === 'lg',
-    [`${classPrefix}-md`]: size === 'md',
-    [`${classPrefix}-sm`]: size === 'sm',
-    [`${classPrefix}-xs`]: size === 'xs',
-    [`${classPrefix}-pill`]: pill,
-    [`${classPrefix}-circle`]: shape === 'circle',
-    [`${classPrefix}-square`]: shape === 'square',
-    [`${classPrefix}-outline`]: variant === 'outline',
-    [`${classPrefix}-link`]: variant === 'link',
-    [`${classPrefix}-block`]: block,
-    [`${classPrefix}-no-animation`]: !animation,
-    [`${classPrefix}-active`]: active,
-    [`${classPrefix}-disabled`]: disabled,
-    [`${classPrefix}-loading`]: loading,
-    [`${classPrefix}-${color}`]: color,
+    styles,
+    ripples,
+    loaderSize,
+    loader = <Loader color="current" size={loaderSize} />,
+    loaderPlacement,
+    startContent,
+    endContent,
+    isLoading,
+    disableRipple,
+    getButtonProps,
+  } = useButton({
+    ...props,
+    ref,
   });
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
-    if (!props.onClick) return;
-
-    const promise = props.onClick(e);
-
-    if (isPromise(promise)) {
-      try {
-        setInnerLoading(true);
-        await promise;
-        setInnerLoading(false);
-      } catch (e) {
-        setInnerLoading(false);
-        throw e;
-      }
-    }
-  };
-
-  if (VoidElementList.includes(Component)) {
-    return (
-      <Component
-        {...rest}
-        ref={ref}
-        data-theme={dataTheme}
-        className={classes}
-        style={style}
-        disabled={disabled}
-        onClick={handleClick}
-      />
-    );
-  } else {
-    return (
-      <Component
-        {...rest}
-        ref={ref}
-        data-theme={dataTheme}
-        className={classes}
-        style={style}
-        disabled={disabled}
-        onClick={handleClick}
-      >
-        {!startIcon && loading && <Loading variant="spinner" size={size} />}
-        {startIcon && !loading && <ButtonIcon>{startIcon}</ButtonIcon>}
-        {children}
-        {endIcon && <ButtonIcon>{endIcon}</ButtonIcon>}
-      </Component>
-    );
-  }
+  return (
+    <Component ref={domRef} className={styles} {...getButtonProps()}>
+      {startContent}
+      {isLoading && loaderPlacement === 'start' && loader}
+      {children}
+      {isLoading && loaderPlacement === 'end' && loader}
+      {endContent}
+      {!disableRipple && <Ripple ripples={ripples} />}
+    </Component>
+  );
 });
 
 Button.displayName = 'Button';
 
-export default Button as <
-  T extends ElementType = 'button',
-  E extends HTMLElement = GetTagProps<T>['ele'],
-  A extends React.HTMLAttributes<HTMLElement> = GetTagProps<T>['attr'],
->(
-  props: ButtonProps<T, A> & { ref?: React.Ref<E> },
-) => JSX.Element;
+export default Button;

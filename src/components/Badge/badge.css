@@ -7,58 +7,58 @@
   height: var(--size-6);
   padding-right: 0.563rem;
   padding-left: 0.563rem;
-  background-color: hsl(var(--b1));
+  background-color: hsl(var(--color-base-100));
   border-width: 1px;
-  border-color: hsl(var(--b2));
+  border-color: hsl(var(--color-base-200));
   border-radius: var(--size-1);
   font-size: var(--text-sm);
   line-height: var(--leading-6);
-  color: hsl(var(--bc));
+  color: hsl(var(--color-base-content));
 
   &-neutral {
-    background-color: hsl(var(--n));
-    border-color: hsl(var(--n));
-    color: hsl(var(--nc));
+    background-color: hsl(var(--color-neutral));
+    border-color: hsl(var(--color-neutral));
+    color: hsl(var(--color-neutral-content));
   }
   &-primary {
-    background-color: hsl(var(--p));
-    border-color: hsl(var(--p));
-    color: hsl(var(--pc));
+    background-color: hsl(var(--color-primary));
+    border-color: hsl(var(--color-primary));
+    color: hsl(var(--color-primary-content));
   }
   &-secondary {
-    background-color: hsl(var(--s));
-    border-color: hsl(var(--s));
-    color: hsl(var(--sc));
+    background-color: hsl(var(--color-secondary));
+    border-color: hsl(var(--color-secondary));
+    color: hsl(var(--color-secondary-content));
   }
   &-accent {
-    background-color: hsl(var(--a));
-    border-color: hsl(var(--a));
-    color: hsl(var(--ac));
+    background-color: hsl(var(--color-accent));
+    border-color: hsl(var(--color-accent));
+    color: hsl(var(--color-accent-content));
   }
   &-info {
-    background-color: hsl(var(--in));
-    border-color: hsl(var(--in));
-    color: hsl(var(--inc));
+    background-color: hsl(var(--color-info));
+    border-color: hsl(var(--color-info));
+    color: hsl(var(--color-info-content));
   }
   &-success {
-    background-color: hsl(var(--su));
-    border-color: hsl(var(--su));
-    color: hsl(var(--suc));
+    background-color: hsl(var(--color-success));
+    border-color: hsl(var(--color-success));
+    color: hsl(var(--color-success-content));
   }
   &-warning {
-    background-color: hsl(var(--wa));
-    border-color: hsl(var(--wa));
-    color: hsl(var(--wac));
+    background-color: hsl(var(--color-warning));
+    border-color: hsl(var(--color-warning));
+    color: hsl(var(--color-warning-content));
   }
   &-error {
-    background-color: hsl(var(--er));
-    border-color: hsl(var(--er));
+    background-color: hsl(var(--color-error));
+    border-color: hsl(var(--color-error));
     color: hsl(var(--erc));
   }
   &-ghost {
-    background-color: hsl(var(--b2));
-    border-color: hsl(var(--b2));
-    color: hsl(var(--bc));
+    background-color: hsl(var(--color-base-200));
+    border-color: hsl(var(--color-base-200));
+    color: hsl(var(--color-base-content));
   }
 
   &-outline {
@@ -67,28 +67,28 @@
     color: currentColor;
 
     &.luna-tag-neutral {
-      color: hsl(var(--n));
+      color: hsl(var(--color-neutral));
     }
     &.luna-badge-primary {
-      color: hsl(var(--p));
+      color: hsl(var(--color-primary));
     }
     &.luna-badge-secondary {
-      color: hsl(var(--s));
+      color: hsl(var(--color-secondary));
     }
     &.luna-badge-accent {
-      color: hsl(var(--a));
+      color: hsl(var(--color-accent));
     }
     &.luna-badge-info {
-      color: hsl(var(--in));
+      color: hsl(var(--color-info));
     }
     &.luna-badge-success {
-      color: hsl(var(--su));
+      color: hsl(var(--color-success));
     }
     &.luna-badge-warning {
-      color: hsl(var(--wa));
+      color: hsl(var(--color-warning));
     }
     &.luna-badge-error {
-      color: hsl(var(--er));
+      color: hsl(var(--color-error));
     }
   }
 

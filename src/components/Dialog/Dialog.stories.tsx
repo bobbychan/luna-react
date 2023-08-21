@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback, useRef } from 'react';
 import Dialog, { DialogProps } from '.';
-import Button from '../Button';
+import { Button } from '../button';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Actions/Dialog',
@@ -24,9 +24,7 @@ const DefaultComponent = (args: DialogProps) => {
       <Button onClick={handleShow}>Open Modal</Button>
       <Dialog {...args} ref={ref} closeOnOverlayClick>
         <Dialog.Header>Dialog Title</Dialog.Header>
-        <Dialog.Body>
-          Press ESC key or click the button below to close
-        </Dialog.Body>
+        <Dialog.Body>Press ESC key or click the button below to close</Dialog.Body>
         <Dialog.Footer>
           <Button>Close</Button>
           <Button

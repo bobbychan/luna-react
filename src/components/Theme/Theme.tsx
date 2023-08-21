@@ -5,8 +5,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { defaultTheme } from '../../global/constants';
-import type { DataTheme, IComponentBaseProps } from '../../global/types';
+import { defaultTheme } from '../../utils/constants';
+import type { DataTheme, IComponentBaseProps } from '../../utils/types';
 import { ThemeContext } from './ThemeContext';
 
 export const getThemeFromClosestAncestor = (

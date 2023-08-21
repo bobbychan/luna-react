@@ -4,7 +4,6 @@ import type { usePopover } from './Popover';
 interface PopoverContextType extends ReturnType<typeof usePopover> {
   setLabelId: React.Dispatch<React.SetStateAction<string | undefined>>;
   setDescriptionId: React.Dispatch<React.SetStateAction<string | undefined>>;
-  [key: string]: any;
 }
 
 export const PopoverContext = React.createContext<PopoverContextType | null>(

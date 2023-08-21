@@ -5,7 +5,7 @@ import {
 } from '@floating-ui/react';
 import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
-import { IComponentBaseProps } from '.././../global/types';
+import { IComponentBaseProps } from '../../utils/types';
 import { usePopoverContext } from './PopoverContext';
 
 export interface PopoverContentProps

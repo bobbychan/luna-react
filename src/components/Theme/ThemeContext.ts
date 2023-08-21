@@ -1,5 +1,5 @@
 import React from 'react';
-import type { DataTheme } from '../..//global/types';
+import type { DataTheme } from '../../utils/types';
 
 export interface IThemeContext {
   theme: DataTheme;

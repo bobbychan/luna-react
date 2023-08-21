@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
-import { IComponentBaseProps } from '../../global/types';
+import { IComponentBaseProps } from '../../utils/types';
 
 const classPrefix = 'luna-divider';
 

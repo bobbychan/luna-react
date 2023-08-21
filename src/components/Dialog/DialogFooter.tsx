@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { IComponentBaseProps } from '../../global/types';
+import { IComponentBaseProps } from '../../utils/types';
 
 type DialogFooterProps = React.HTMLAttributes<HTMLDivElement> &
   IComponentBaseProps;

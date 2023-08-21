@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @layer base {
+  :root {
+    color-scheme: light;
+    --background: 0 0% 100%;
+    --foreground: 246 6% 9;
+    --overlay: 0 0% 0%;
+    --focus: 212 100% 47%;
+    --default-50: 0 0% 98%;
+    --default-100: 240 5% 96%;
+    --default-200: 240 6% 90%;
+    --default-300: 240 5% 84%;
+    --default-400: 240 5% 65%;
+    --default-500: 240 4% 46%;
+    --default-600: 240 5% 34%;
+    --default-700: 240 5% 26%;
+    --default-800: 240 4% 16%;
+    --default-900: 240 6% 10%;
+    --default: 0 0% 95%;
+    --default-foreground: 215 28% 17%;
+    --primary: 212 100% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 67% 47%;
+    --secondary-foreground: 0 0% 100%;
+    --info: "";
+    --info-forground: "";
+    --success: 146 79% 44%;
+    --success-foreground: 0 0% 0%;
+    --warning: 37 91% 55%;
+    --warning-foreground: 0 0% 0%;
+    --danger: 339 90% 51%;
+    --danger-foreground: 0 0% 100%;
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --background: 246 6% 9%;
+    --foreground: 0 0% 98%;
+    --default-50: 240 6% 10%;
+    --default-100: 240 4% 16%;
+    --default-200: 240 5% 26%;
+    --default-300: 240 5% 34%;
+    --default-400: 240 4% 46%;
+    --default-500: 240 5% 65%;
+    --default-600: 240 5% 84%;
+    --default-700: 240 6% 90%;
+    --default-800: 240 5% 96%;
+    --default-900: 0 0% 98%;
+    --default: 240 5% 26%;
+    --default-foreground: 0 0% 100%;
+    --secondary: 270 59% 58%;
+    --secondary-foreground: 0 0% 100%;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */

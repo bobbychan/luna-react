@@ -1,42 +1,63 @@
-import {
-  HeartIcon,
-  MagnifyingGlassIcon,
-  PaperAirplaneIcon,
-  PlayIcon,
-  PlusCircleIcon,
-} from '@heroicons/react/24/outline';
+import { PaperAirplaneIcon, PlayIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import { HeartIcon } from '@heroicons/react/24/solid';
 import type { Meta, StoryObj } from '@storybook/react';
-import Button from '.';
+import { Button, ButtonGroup, ButtonProps } from '.';
+import { button } from '../../theme/components';
 
 const meta: Meta<typeof Button> = {
-  title: 'Actions/Button',
+  title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    color: {
-      control: 'select',
-      options: [
-        'neutral',
-        'primary',
-        'secondary',
-        'accent',
-        'ghost',
-        'info',
-        'success',
-        'warning',
-        'error',
-      ],
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['solid', 'bordered', 'light', 'flat', 'faded', 'shadow', 'ghost'],
     },
-    animation: {
-      table: {
-        defaultValue: { summary: true },
+    color: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
+    },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['sm', 'md', 'lg'],
+    },
+    spinnerPlacement: {
+      control: {
+        type: 'select',
+      },
+      options: ['start', 'end'],
+    },
+    fullWidth: {
+      control: {
+        type: 'boolean',
       },
     },
-    startIcon: {
-      control: false,
+    radius: {
+      control: {
+        type: 'select',
+      },
+      options: ['none', 'sm', 'md', 'lg', 'full'],
     },
-    endIcon: {
-      control: false,
+    isDisabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isLoading: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disableAnimation: {
+      control: {
+        type: 'boolean',
+      },
     },
   },
 };
@@ -44,89 +65,16 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
-  args: {
-    children: 'Default',
-  },
+const defaultProps: ButtonProps = {
+  children: 'Button',
+  loaderPlacement: 'start',
+  ...button.defaultVariants,
 };
 
-export const WithBrand: Story = {
+export const Colors: Story = {
   render: (args) => (
-    <>
-      <div style={{ display: 'flex', gap: 8, marginBottom: '1rem' }}>
-        <Button {...args}>Default</Button>
-        <Button {...args} color="neutral">
-          Neutral
-        </Button>
-        <Button {...args} color="primary">
-          Primary
-        </Button>
-        <Button {...args} color="secondary">
-          Secondary
-        </Button>
-        <Button {...args} color="accent">
-          Accent
-        </Button>
-        <Button {...args} color="ghost">
-          Ghost
-        </Button>
-        <Button {...args} variant="link">
-          Link
-        </Button>
-      </div>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <Button {...args} pill>
-          Default
-        </Button>
-        <Button {...args} color="neutral" pill>
-          Neutral
-        </Button>
-        <Button {...args} color="primary" pill>
-          Primary
-        </Button>
-        <Button {...args} color="secondary" pill>
-          Secondary
-        </Button>
-        <Button {...args} color="accent" pill>
-          Accent
-        </Button>
-        <Button {...args} color="ghost" pill>
-          Ghost
-        </Button>
-        <Button {...args} variant="link" pill>
-          Link
-        </Button>
-      </div>
-    </>
-  ),
-};
-
-export const WithState: Story = {
-  render: (args) => (
-    <div style={{ display: 'flex', gap: 8 }}>
-      <Button {...args} color="info">
-        Info
-      </Button>
-      <Button {...args} color="success">
-        Success
-      </Button>
-      <Button {...args} color="warning">
-        Warning
-      </Button>
-      <Button {...args} color="error">
-        Error
-      </Button>
-    </div>
-  ),
-};
-
-export const WithOutline: Story = {
-  args: {
-    variant: 'outline',
-  },
-  render: (args) => (
-    <div style={{ display: 'flex', gap: 8 }}>
-      <Button {...args} variant="outline">
+    <div className="flex gap-4 items-center">
+      <Button {...args} onClick={() => console.log('clicked')}>
         Default
       </Button>
       <Button {...args} color="primary">
@@ -135,60 +83,90 @@ export const WithOutline: Story = {
       <Button {...args} color="secondary">
         Secondary
       </Button>
-      <Button {...args} color="accent">
-        Accent
-      </Button>
-      <Button {...args} color="info">
-        Info
-      </Button>
       <Button {...args} color="success">
         Success
       </Button>
       <Button {...args} color="warning">
         Warning
       </Button>
-      <Button {...args} color="error">
-        Error
+      <Button {...args} color="danger">
+        Danger
       </Button>
     </div>
   ),
 };
 
-export const WithSize: Story = {
+export const Variants: Story = {
+  args: {
+    color: 'primary',
+  },
   render: (args) => (
-    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-      <Button {...args} size="lg">
-        Large
+    <div className="flex gap-4 items-center">
+      <Button {...args} variant="solid">
+        Solid
       </Button>
-      <Button {...args} size="md">
-        Normal
+      <Button {...args} variant="faded">
+        Faded
       </Button>
+      <Button {...args} variant="bordered">
+        Bordered
+      </Button>
+      <Button {...args} variant="light">
+        Light
+      </Button>
+      <Button {...args} variant="flat">
+        Flat
+      </Button>
+      <Button {...args} variant="ghost">
+        Ghost
+      </Button>
+      <Button {...args} variant="shadow">
+        Shadow
+      </Button>
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex gap-4 items-center">
       <Button {...args} size="sm">
         Small
       </Button>
-      <Button {...args} size="xs">
-        Tiny
+      <Button {...args} size="md">
+        Medium
+      </Button>
+      <Button {...args} size="lg">
+        Large
       </Button>
     </div>
   ),
 };
 
-export const Block: Story = {
-  args: {
-    block: true,
-    children: 'Block level button',
-  },
+export const Radius: Story = {
+  render: (args) => (
+    <div className="flex gap-4 items-center">
+      <Button radius="full">Full</Button>
+      <Button radius="lg">Large</Button>
+      <Button radius="md">Medium</Button>
+      <Button radius="sm">Small</Button>
+      <Button radius="none">None</Button>
+    </div>
+  ),
 };
 
 export const Disabled: Story = {
   args: {
-    disabled: true,
+    isDisabled: true,
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: 8 }}>
       <Button {...args}>Default</Button>
-      <Button {...args} color="info">
-        Info
+      <Button {...args} color="primary">
+        Primary
+      </Button>
+      <Button {...args} color="secondary">
+        Secondary
       </Button>
       <Button {...args} color="success">
         Success
@@ -196,63 +174,21 @@ export const Disabled: Story = {
       <Button {...args} color="warning">
         Warning
       </Button>
-      <Button {...args} color="error">
+      <Button {...args} color="danger">
         Error
       </Button>
     </div>
   ),
 };
 
-export const WithIcon: Story = {
-  render: (args) => (
-    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-      <Button {...args} size="lg" startIcon={<HeartIcon />}>
-        Like
-      </Button>
-      <Button {...args} size="md" startIcon={<PaperAirplaneIcon />}>
-        Send
-      </Button>
-      <Button {...args} size="sm" startIcon={<PlusCircleIcon />}>
-        Add
-      </Button>
-      <Button {...args} size="xs" startIcon={<HeartIcon />}>
-        love
-      </Button>
-      <Button {...args} endIcon={<HeartIcon />}>
-        loading
-      </Button>
-      <Button
-        {...args}
-        shape="circle"
-        color="primary"
-        size="lg"
-        endIcon={<MagnifyingGlassIcon />}
-      />
-      <Button
-        {...args}
-        shape="square"
-        color="success"
-        size="lg"
-        endIcon={<PlayIcon />}
-      />
-    </div>
-  ),
-};
-
-export const WithLoading: Story = {
+export const Loading: Story = {
   args: {
-    loading: true,
+    color: 'primary',
+    isLoading: true,
   },
   render: (args) => (
     <>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          alignItems: 'center',
-          marginBottom: '1rem',
-        }}
-      >
+      <div className="flex gap-4 items-center">
         <Button {...args} size="lg">
           loading
         </Button>
@@ -262,37 +198,12 @@ export const WithLoading: Story = {
         <Button {...args} size="sm">
           loading
         </Button>
-        <Button {...args} size="xs">
-          loading
-        </Button>
-        <Button {...args} shape="square" />
-        <Button {...args} shape="circle" />
       </div>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          alignItems: 'center',
-          marginBottom: '1rem',
-        }}
-      >
-        <Button {...args} color="neutral">
-          loading
-        </Button>
+      <div className="flex gap-4 items-center mt-4">
         <Button {...args} color="primary">
           loading
         </Button>
         <Button {...args} color="secondary">
-          loading
-        </Button>
-        <Button {...args} color="accent">
-          loading
-        </Button>
-        <Button {...args} color="ghost">
-          loading
-        </Button>
-        <Button {...args} color="info">
           loading
         </Button>
         <Button {...args} color="success">
@@ -301,35 +212,34 @@ export const WithLoading: Story = {
         <Button {...args} color="warning">
           loading
         </Button>
-        <Button {...args} color="error">
+        <Button {...args} color="danger">
           loading
         </Button>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          alignItems: 'center',
-          marginBottom: '1rem',
-        }}
-      >
-        <Button {...args} color="neutral" disabled>
+      <div className="flex gap-4 items-center mt-4">
+        <Button {...args} variant="solid">
           loading
         </Button>
-        <Button {...args} color="primary" shape="circle" disabled />
+        <Button {...args} variant="faded">
+          loading
+        </Button>
+        <Button {...args} variant="bordered">
+          loading
+        </Button>
+        <Button {...args} variant="light">
+          loading
+        </Button>
+        <Button {...args} variant="flat">
+          loading
+        </Button>
+        <Button {...args} variant="ghost">
+          loading
+        </Button>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          alignItems: 'center',
-          marginBottom: '1rem',
-        }}
-      >
+      <div className="flex gap-4 items-center mt-4">
         <Button
           {...args}
-          loading="auto"
-          color="primary"
+          loaderPlacement="end"
           onClick={async () => {
             await new Promise((resolve) => setTimeout(resolve, 3000));
           }}
@@ -341,17 +251,59 @@ export const WithLoading: Story = {
   ),
 };
 
-export const WithHTMLTags: Story = {
+export const WithIcons: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', gap: 16 }}>
-      <Button loading as="input" type="checkbox" aria-label="Checkbox" />
-      <Button loading as="input" type="radio" aria-label="Radio" />
-      <Button loading as="input" type="button" value="Button" />
-      <Button loading as="input" type="submit" />
-      <Button loading as="input" type="reset" />
-      <Button as="a" href="https://www.google.com" target="_blank">
-        Link
+    <div className="flex gap-4 items-center">
+      <Button color="primary" startContent={<HeartIcon className="h-5 w-5" />}>
+        Like
       </Button>
+      <Button
+        color="danger"
+        variant="bordered"
+        startContent={<PaperAirplaneIcon className="h-5 w-5" />}
+      >
+        Send
+      </Button>
+      <Button size="sm" startContent={<PlusCircleIcon className="h-4 w-4" />}>
+        Add
+      </Button>
+      <Button endContent={<HeartIcon className="h-5 w-5" />}>Like</Button>
+      <Button isIconOnly color="danger" aria-label="Like">
+        <HeartIcon className="h-5 w-5" />
+      </Button>
+      <Button isIconOnly color="secondary" variant="faded" aria-label="Play music">
+        <PlayIcon className="h-5 w-5" />
+      </Button>
+    </div>
+  ),
+};
+
+export const CustomStyles: Story = {
+  render: (args) => (
+    <div className="flex gap-4 items-center">
+      <Button
+        radius="full"
+        className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+      >
+        Button
+      </Button>
+    </div>
+  ),
+};
+
+export const Group: Story = {
+  render: (args) => (
+    <div className="flex flex-col items-start gap-4">
+      <ButtonGroup>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
+      <ButtonGroup isDisabled>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
     </div>
   ),
 };

@@ -19,9 +19,9 @@ function clean() {
 
 function sortCSS() {
   return gulp
-    .src(['src/components/**/*.css'])
+    .src(['src/**/*.css'])
     .pipe(postcss([sorting(sortingConfig)]))
-    .pipe(gulp.dest('src/components'));
+    .pipe(gulp.dest('src'));
 }
 
 function buildESM() {

@@ -1,11 +1,14 @@
+const { lunaReact } = require("./src/theme/plugin")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {}
+    },
   },
-  plugins: [],
+  darkMode: 'class',
+  plugins: [lunaReact()],
+  // presets: [require('./src/tailwind-preset')],
 };

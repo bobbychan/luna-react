@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-import '../src/global/global.css';
 import './style.css';
 
 const preview: Preview = {
@@ -10,6 +9,13 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    darkMode: {
+      current: 'light',
+      stylePreview: true,
+      darkClass: 'dark',
+      lightClass: 'light',
+      classTarget: 'html',
     },
   },
 };

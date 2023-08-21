@@ -4,7 +4,7 @@ import {
   ComponentColor,
   ComponentSize,
   IComponentBaseProps,
-} from '../../global/types';
+} from '../../utils/types';
 import BadgeIcon from './BadgeIcon';
 
 const classPrefix = 'luna-badge';

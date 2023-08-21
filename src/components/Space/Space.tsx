@@ -5,7 +5,7 @@
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React from 'react';
-import { ComponentSize } from '../../global/types';
+import { ComponentSize } from '../../utils/types';
 
 const classPrefix = 'luna-space';
 

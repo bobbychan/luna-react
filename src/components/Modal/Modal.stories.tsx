@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback, useRef, useState } from 'react';
 import Modal, { ModalProps } from '.';
-import Button from '../Button';
+import { Button } from '../button';
 
 const meta: Meta<typeof Modal> = {
   title: 'Actions/Modal',
@@ -38,9 +38,7 @@ const DefaultComponent = (args: ModalProps) => {
         onClose={handleHide}
       >
         <Modal.Header as="h3">Modal Title</Modal.Header>
-        <Modal.Body>
-          Press ESC key or click the button below to close
-        </Modal.Body>
+        <Modal.Body>Press ESC key or click the button below to close</Modal.Body>
         <Modal.Footer>
           <Button onClick={handleHide}>Close</Button>
           <Button color="primary" onClick={handleHide}>

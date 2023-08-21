@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import type { DataTheme } from '../../global/types';
+import type { DataTheme } from '../../utils/types';
 import { ThemeContext } from './ThemeContext';
 
 export const useTheme = (value?: DataTheme) => {

@@ -1,6 +1,6 @@
 .luna-divider {
   --divider-border-width: 1px;
-  --divider-border-color: hsl(var(--bc) / 0.1);
+  --divider-border-color: hsl(215 28% 17% / 0.1);
   --divider-gap: 1rem;
 
   &-horizontal {

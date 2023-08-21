@@ -8,27 +8,25 @@ export interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
 }
 
-const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
-  (props, ref) => {
-    const { children, className, id, as: Component = 'div', ...rest } = props;
-    const innerHeaderId = useId();
-    const headerId = id || innerHeaderId;
-    const classes = classNames('luna-modal-header', className);
-    const { setHeaderId } = useModalContext();
+const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>((props, ref) => {
+  const { children, className, id, as: Component = 'div', ...rest } = props;
+  const innerHeaderId = useId();
+  const headerId = id || innerHeaderId;
+  const classes = classNames('luna-modal-header', className);
+  const { setHeaderId } = useModalContext();
 
-    useLayoutEffect(() => {
-      setHeaderId(headerId);
+  useLayoutEffect(() => {
+    setHeaderId(headerId);
 
-      return () => setHeaderId(undefined);
-    }, [headerId, setHeaderId]);
+    return () => setHeaderId(undefined);
+  }, [headerId, setHeaderId]);
 
-    return (
-      <Component {...rest} ref={ref} className={classes} id={headerId}>
-        {children}
-      </Component>
-    );
-  },
-);
+  return (
+    <Component {...rest} ref={ref} className={classes} id={headerId}>
+      {children}
+    </Component>
+  );
+});
 
 ModalHeader.displayName = 'ModalHeader';
 

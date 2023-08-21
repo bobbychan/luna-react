@@ -1,6 +1,5 @@
-'use client';
+// export types
+export type { AlertProps } from './alert';
 
-import Alert from './Alert';
-import './alert.css';
-export type { AlertProps } from './Alert';
-export default Alert;
+// export component
+export { default as Alert } from './alert';

@@ -1,78 +1,34 @@
-import {
-  CheckCircleIcon,
-  ExclamationCircleIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
-import React, { ReactNode, forwardRef } from 'react';
-import { ComponentStatus, IComponentBaseProps } from '../../global/types';
+import type { AlertVariantProps } from '../../theme/components/alert';
+import type { HTMLProps } from '../../utils/types';
 
-const classPrefix = 'luna-alert';
+import { ReactNode, useMemo } from 'react';
+import { alert } from '../../theme/components/alert';
+import { forwardRef } from '../../utils/utils';
 
-const iconRecord = {
-  info: InformationCircleIcon,
-  success: CheckCircleIcon,
-  warning: ExclamationCircleIcon,
-  error: XCircleIcon,
-};
-
-export type AlertProps = React.HTMLAttributes<HTMLDivElement> &
-  IComponentBaseProps & {
-    icon?: ReactNode;
-    status?: ComponentStatus;
-    rounded?: boolean;
-  };
-
-interface IconNodeProps {
-  status: AlertProps['status'];
-  icon: AlertProps['icon'];
+export interface AlertProps extends HTMLProps<'div'> {
+  icon?: ReactNode;
 }
-
-const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { status, icon } = props;
-  const iconClassName = `${classPrefix}-icon`;
-  const iconStatus = iconRecord[status!] || null;
-
-  if (icon) {
-    if (!React.isValidElement(icon)) {
-      return <span className={iconClassName}>{icon}</span>;
-    }
-
-    return React.cloneElement(icon as React.ReactElement, {
-      className: classNames(
-        iconClassName,
-        (icon as React.ReactElement).props.className,
-      ),
-    });
-  }
-
-  return iconStatus
-    ? React.createElement(iconStatus, { className: iconClassName })
-    : null;
-};
 
 /**
  * Alert informs users about important events.
  */
-const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
-  const { className, status, icon, dataTheme, children, ...rest } = props;
-  const classes = classNames(classPrefix, className, {
-    [`${classPrefix}-info`]: status === 'info',
-    [`${classPrefix}-success`]: status === 'success',
-    [`${classPrefix}-warning`]: status === 'warning',
-    [`${classPrefix}-error`]: status === 'error',
-  });
+const Alert = forwardRef<'div', AlertProps & AlertVariantProps>((props, ref) => {
+  const { className, icon, variant, color, radius, children, ...rest } = props;
+
+  const styles = useMemo(
+    () =>
+      alert({
+        variant,
+        color,
+        radius,
+        className,
+      }),
+    [className, color, radius, variant],
+  );
 
   return (
-    <div
-      role="alert"
-      {...rest}
-      ref={ref}
-      data-theme={dataTheme}
-      className={classes}
-    >
-      <IconNode status={status} icon={icon} />
+    <div role="alert" {...rest} ref={ref} className={styles}>
+      {icon}
       {children}
     </div>
   );

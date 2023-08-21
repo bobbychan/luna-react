@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback, useRef, useState } from 'react';
 import Popover, { PopoverProps } from '.';
-import Button from '../Button';
+import { Button } from '../button';
 
 const meta: Meta<typeof Popover> = {
   title: 'Data Display/Popover',

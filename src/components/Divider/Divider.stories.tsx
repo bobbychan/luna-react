@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Divider from '.';
-import Button from '../Button';
+import { Button } from '../button';
 
 const Placeholder = () => (
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
-    merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo
-    modo.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
+    probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
 );
 
