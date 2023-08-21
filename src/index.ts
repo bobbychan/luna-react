@@ -6,9 +6,11 @@ export * from './components/alert';
 export * from './components/avatar';
 export * from './components/button';
 export * from './components/chip';
+export * from './components/divider';
 export * from './components/image';
 export * from './components/link';
 export * from './components/loader';
+export * from './components/space';
 
 // Actions > Dialog
 export { default as Dialog } from './components/dialog';
@@ -28,19 +30,9 @@ export type { BadgeProps } from './components/badge';
 export { default as Popover } from './components/popover';
 export type { PopoverProps } from './components/popover';
 
-// ----------------------- < Layout > ----------------------- //
-
-// Layout > Divider
-export { default as Divider } from './components/divider';
-export type { DividerProps } from './components/divider';
-
-export { default as Space } from './components/space';
-export type { SpaceProps } from './components/space';
-
 // ----------------------- < Utils > ----------------------- //
 
 // Utils > Theme
 export { default as Theme } from './components/theme';
 export type { ThemeProps } from './components/theme';
 export { useTheme } from './components/theme/useTheme';
-
