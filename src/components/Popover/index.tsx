@@ -1,5 +1,3 @@
-'use client';
-
 import Popover from './Popover';
 import './popover.css';
 

@@ -31,8 +31,8 @@ export type { PopoverProps } from './components/popover';
 // ----------------------- < Layout > ----------------------- //
 
 // Layout > Divider
-export { default as Divider } from './components/Divider';
-export type { DividerProps } from './components/Divider';
+export { default as Divider } from './components/divider';
+export type { DividerProps } from './components/divider';
 
 export { default as Space } from './components/space';
 export type { SpaceProps } from './components/space';
