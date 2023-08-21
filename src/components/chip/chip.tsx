@@ -4,7 +4,7 @@ import { forwardRef } from '../../utils';
 
 import { UseChipProps, useChip } from './use-chip';
 
-export interface ChipProps extends Omit<UseChipProps, 'isOneChar' | 'isCloseButtonFocusVisible'> {}
+export interface ChipProps extends Omit<UseChipProps, 'isOneChar'> {}
 
 const Chip = forwardRef<'div', ChipProps>((props, ref) => {
   const {
