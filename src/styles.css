@@ -1,3 +1,0 @@
-.chip-close-button:focus-visible {
-  @apply outline-none ring-1 ring-focus ring-offset-2 ring-offset-background rounded-full;
-}
