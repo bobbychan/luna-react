@@ -1,6 +1,6 @@
 import type { VariantProps } from 'tailwind-variants';
 
-import { colorVariants, dataFocusVisibleClasses, translateCenterClasses } from '../utils';
+import { colorVariants, focusVisibleClasses, translateCenterClasses } from '../utils';
 import { tv } from '../utils/tv';
 
 /**
@@ -28,7 +28,7 @@ const avatar = tv({
       'text-white',
       'z-10',
       // focus ring
-      ...dataFocusVisibleClasses,
+      ...focusVisibleClasses,
     ],
     img: [
       'flex',

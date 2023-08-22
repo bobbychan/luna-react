@@ -16,7 +16,6 @@ import { Button } from '../button';
 const meta: Meta<typeof NavigationMenu> = {
   title: 'Components/NavigationMenu',
   component: NavigationMenu,
-  tags: ['autodocs'],
   argTypes: {},
   decorators: [
     (Story) => (
@@ -65,7 +64,7 @@ const menuData = [
 const DefaultComponent = (args: NavigationMenuProps) => {
   return (
     <div>
-      <NavigationMenu {...args} value="learn">
+      <NavigationMenu {...args}>
         <NavigationMenuList>
           <NavigationMenuItem value="learn">
             <NavigationMenuTrigger asChild>

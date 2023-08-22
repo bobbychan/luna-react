@@ -11,6 +11,7 @@ export * from './components/image';
 export * from './components/link';
 export * from './components/loader';
 export * from './components/navigation-menu';
+export * from './components/popover';
 export * from './components/space';
 
 // Actions > Dialog
@@ -26,10 +27,6 @@ export type { ModalProps } from './components/modal';
 // Data Display > Badge
 export { default as Badge } from './components/badge';
 export type { BadgeProps } from './components/badge';
-
-// Data Display > Popover
-export { default as Popover } from './components/popover';
-export type { PopoverProps } from './components/popover';
 
 // ----------------------- < Utils > ----------------------- //
 

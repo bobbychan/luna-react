@@ -1,6 +1,6 @@
 import type { VariantProps } from 'tailwind-variants';
 
-import { dataFocusVisibleClasses } from '../utils';
+import { focusVisibleClasses } from '../utils';
 import { tv } from '../utils/tv';
 
 /**
@@ -13,7 +13,7 @@ const link = tv({
   base: [
     'relative inline-flex items-center outline-none tap-highlight-transparent',
     // focus ring
-    ...dataFocusVisibleClasses,
+    ...focusVisibleClasses,
   ],
   variants: {
     size: {
