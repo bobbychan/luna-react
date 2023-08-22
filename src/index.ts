@@ -10,6 +10,7 @@ export * from './components/divider';
 export * from './components/image';
 export * from './components/link';
 export * from './components/loader';
+export * from './components/navigation-menu';
 export * from './components/space';
 
 // Actions > Dialog

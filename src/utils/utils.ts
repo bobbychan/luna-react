@@ -1,5 +1,7 @@
-import { forwardRef as baseForwardRef } from "react";
-import { As, InternalForwardRefRenderFunction, PropsOf, RightJoinProps } from "./types";
+import { clsx, type ClassValue } from 'clsx';
+import { forwardRef as baseForwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { As, InternalForwardRefRenderFunction, PropsOf, RightJoinProps } from './types';
 
 export function forwardRef<
   Component extends As,
@@ -44,3 +46,7 @@ export const mapPropsVariants = <T extends Record<string, any>, K extends keyof 
     return [props, picked] as [T, Pick<T, K>];
   }
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
