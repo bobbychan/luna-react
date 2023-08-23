@@ -6,4 +6,5 @@ export * from './divider';
 export * from './image';
 export * from './link';
 export * from './loader';
+export * from './scroll-area';
 export * from './space';

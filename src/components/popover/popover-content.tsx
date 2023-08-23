@@ -19,7 +19,7 @@ const PopoverContent = React.forwardRef<React.ElementRef<typeof Content>, Popove
           {...contentProps}
           ref={ref}
           className={cn(
-            'z-50 relative bg-content1 text-foreground rounded-md shadow-medium p-4 outline-none',
+            'z-50 relative bg-content1 text-foreground rounded-md shadow-medium p-4 outline-none min-w-[var(--radix-popover-trigger-width)] origin-[var(--radix-popover-content-transform-origin)]',
             className,
           )}
         />

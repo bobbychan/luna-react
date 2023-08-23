@@ -7,11 +7,13 @@ export * from './components/avatar';
 export * from './components/button';
 export * from './components/chip';
 export * from './components/divider';
+export * from './components/dropdown';
 export * from './components/image';
 export * from './components/link';
 export * from './components/loader';
 export * from './components/navigation-menu';
 export * from './components/popover';
+export * from './components/scroll-area';
 export * from './components/space';
 
 // Actions > Dialog
