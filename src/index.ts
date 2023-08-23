@@ -14,11 +14,8 @@ export * from './components/loader';
 export * from './components/navigation-menu';
 export * from './components/popover';
 export * from './components/scroll-area';
+export * from './components/select';
 export * from './components/space';
-
-// Actions > Dialog
-export { default as Dialog } from './components/dialog';
-export type { DialogProps } from './components/dialog';
 
 // Actions > Modal
 export { default as Modal } from './components/modal';
