@@ -8,18 +8,18 @@ import { tv } from '../utils/tv';
  */
 const scrollArea = tv({
   slots: {
-    base: 'relative overflow-hidden',
+    base: 'relative overflow-hidden w-full h-full flex flex-col',
     viewport: 'w-full h-full rounded-[inherit]',
-    scrollbar: 'flex touch-none select-none transition-colors',
-    thumb: 'relative flex-1 rounded-full bg-content3',
+    scrollbar: 'flex touch-none select-none transition-colors m-1 bg-default-100',
+    thumb: 'relative flex-1 rounded-full bg-default',
   },
   variants: {
     orientation: {
       vertical: {
-        scrollbar: 'h-full w-2.5 border-l border-l-transparent p-[1px]',
+        scrollbar: 'w-1 my-2',
       },
       horizontal: {
-        scrollbar: 'h-2.5 border-t border-t-transparent p-[1px]',
+        scrollbar: 'h-1 mx-2',
       },
     },
   },

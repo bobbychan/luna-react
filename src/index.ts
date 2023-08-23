@@ -7,7 +7,7 @@ export * from './components/avatar';
 export * from './components/button';
 export * from './components/chip';
 export * from './components/divider';
-export * from './components/dropdown';
+export * from './components/dropdown-menu';
 export * from './components/image';
 export * from './components/link';
 export * from './components/loader';
