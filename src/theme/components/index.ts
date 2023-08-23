@@ -7,4 +7,5 @@ export * from './image';
 export * from './link';
 export * from './loader';
 export * from './scroll-area';
+export * from './skeleton';
 export * from './space';
