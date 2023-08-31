@@ -1,12 +1,11 @@
 import type { ImageSlots, ImageVariantProps, SlotsToClasses } from '../../theme';
 
-import clsx from 'clsx';
 import { ImgHTMLAttributes, useCallback, useMemo } from 'react';
 import { useImage as useImageBase } from '../../hooks/use-image';
 import { image } from '../../theme';
-import { HTMLProps, PropGetter, mapPropsVariants } from '../../utils';
 import { ReactRef } from '../../utils/react-utils';
-import { dataAttr } from '../../utils/shared-utils';
+import { clsx, dataAttr } from '../../utils/shared-utils';
+import { HTMLProps, PropGetter, mapPropsVariants } from '../../utils/system';
 type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
 interface Props extends HTMLProps<'img'> {

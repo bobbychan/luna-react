@@ -1,5 +1,5 @@
 import type { VariantProps } from 'tailwind-variants';
-import { colorVariants, focusVisibleClasses } from '../utils';
+import { colorVariants, dataFocusVisibleClasses } from '../utils';
 import { tv } from '../utils/tv';
 
 /**
@@ -10,6 +10,10 @@ import { tv } from '../utils/tv';
  * @example
  * <button
  *  className={classNames())}
+ *  data-pressed={true/false}
+ *  data-hover={true/false}
+ *  data-focus={true/false}
+ *  data-focus-visible={true/false}
  * >
  *   Button
  * </button>
@@ -34,7 +38,7 @@ const button = tv({
     'overflow-hidden',
     'tap-highlight-transparent',
     // focus ring
-    ...focusVisibleClasses,
+    ...dataFocusVisibleClasses,
   ],
   variants: {
     variant: {

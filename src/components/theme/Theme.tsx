@@ -1,35 +1,22 @@
-import React, {
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import { defaultTheme } from '../../utils/constants';
-import type { DataTheme, IComponentBaseProps } from '../../utils/types';
+import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
+import type { DataTheme, IComponentBaseProps } from '../../utils/system';
+import { defaultTheme } from '../../utils/system/constants';
 import { ThemeContext } from './ThemeContext';
 
-export const getThemeFromClosestAncestor = (
-  ref: React.RefObject<HTMLElement>,
-) => {
+export const getThemeFromClosestAncestor = (ref: React.RefObject<HTMLElement>) => {
   if (!ref.current) return;
   const matches = ref.current.closest('[data-theme]');
   if (matches) return matches.getAttribute('data-theme');
 };
 
-export type ThemeProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange'
-> &
+export type ThemeProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> &
   IComponentBaseProps & {
     onChange?: (theme: DataTheme) => void;
   };
 
 const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
   ({ children, dataTheme, onChange, className, ...props }, ref) => {
-    const themeRef = useRef<HTMLDivElement>(
-      (ref as MutableRefObject<HTMLDivElement>)?.current,
-    );
+    const themeRef = useRef<HTMLDivElement>((ref as MutableRefObject<HTMLDivElement>)?.current);
 
     const closestAncestorTheme = getThemeFromClosestAncestor(themeRef);
     const [theme, setTheme] = useState<DataTheme>(

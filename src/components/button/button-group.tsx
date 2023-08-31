@@ -1,19 +1,12 @@
-import { forwardRef } from '../..//utils/utils';
+import { forwardRef } from '../../utils/system';
 
-import { ButtonGroupProvider } from "./button-group-context";
+import { ButtonGroupProvider } from './button-group-context';
 import { UseButtonGroupProps, useButtonGroup } from './use-button-group';
 
 export interface ButtonGroupProps extends UseButtonGroupProps {}
 
 const ButtonGroup = forwardRef<'div', ButtonGroupProps>((props, ref) => {
-  const {
-    Component,
-    domRef,
-    context,
-    children,
-    classNames,
-    getButtonGroupProps,
-  } = useButtonGroup({
+  const { Component, domRef, context, children, classNames, getButtonGroupProps } = useButtonGroup({
     ...props,
     ref,
   });
@@ -27,6 +20,6 @@ const ButtonGroup = forwardRef<'div', ButtonGroupProps>((props, ref) => {
   );
 });
 
-ButtonGroup.displayName = "ButtonGroup";
+ButtonGroup.displayName = 'ButtonGroup';
 
 export default ButtonGroup;

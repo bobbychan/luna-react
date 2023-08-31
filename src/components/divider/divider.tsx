@@ -1,4 +1,4 @@
-import { forwardRef } from '../../utils';
+import { forwardRef } from '../../utils/system';
 
 import { UseDividerProps, useDivider } from './use-divider';
 

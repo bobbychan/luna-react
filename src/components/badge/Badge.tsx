@@ -1,10 +1,6 @@
-import classNames from 'classnames';
 import React, { forwardRef } from 'react';
-import {
-  ComponentColor,
-  ComponentSize,
-  IComponentBaseProps,
-} from '../../utils/types';
+import { clsx } from '../../utils/shared-utils';
+import { ComponentColor, ComponentSize, IComponentBaseProps } from '../../utils/system';
 import BadgeIcon from './BadgeIcon';
 
 const classPrefix = 'luna-badge';
@@ -19,44 +15,26 @@ export interface BadgeProps
   pill?: boolean;
 }
 
-const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  (props, ref): JSX.Element => {
-    const {
-      children,
-      icon,
-      size,
-      color,
-      outline,
-      pill,
-      dataTheme,
-      className,
-      ...rest
-    } = props;
+const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref): JSX.Element => {
+  const { children, icon, size, color, outline, pill, dataTheme, className, ...rest } = props;
 
-    const classes = classNames(classPrefix, className, {
-      [`${classPrefix}-lg`]: size === 'lg',
-      [`${classPrefix}-md`]: size === 'md',
-      [`${classPrefix}-sm`]: size === 'sm',
-      [`${classPrefix}-xs`]: size === 'xs',
-      [`${classPrefix}-outline`]: outline,
-      [`${classPrefix}-pill`]: pill,
-      [`${classPrefix}-${color}`]: color,
-    });
+  const classes = clsx(classPrefix, className, {
+    [`${classPrefix}-lg`]: size === 'lg',
+    [`${classPrefix}-md`]: size === 'md',
+    [`${classPrefix}-sm`]: size === 'sm',
+    [`${classPrefix}-xs`]: size === 'xs',
+    [`${classPrefix}-outline`]: outline,
+    [`${classPrefix}-pill`]: pill,
+    [`${classPrefix}-${color}`]: color,
+  });
 
-    return (
-      <div
-        aria-label="Badge"
-        {...rest}
-        ref={ref}
-        data-theme={dataTheme}
-        className={classes}
-      >
-        {icon && <BadgeIcon>{icon}</BadgeIcon>}
-        {children}
-      </div>
-    );
-  },
-);
+  return (
+    <div aria-label="Badge" {...rest} ref={ref} data-theme={dataTheme} className={classes}>
+      {icon && <BadgeIcon>{icon}</BadgeIcon>}
+      {children}
+    </div>
+  );
+});
 
 Badge.displayName = 'Badge';
 

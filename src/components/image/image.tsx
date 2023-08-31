@@ -1,5 +1,5 @@
 import { cloneElement } from 'react';
-import { forwardRef } from '../../utils';
+import { forwardRef } from '../../utils/system';
 
 import { UseImageProps, useImage } from './use-image';
 

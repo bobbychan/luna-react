@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import { Icon, Trigger, Value } from '@radix-ui/react-select';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 import { useSelectContext } from './select-context';
 
 export interface SelectTriggerProps

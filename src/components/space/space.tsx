@@ -1,5 +1,5 @@
 import React from 'react';
-import { forwardRef } from '../../utils/utils';
+import { forwardRef } from '../../utils/system';
 import { UseSpaceProps, useSpace } from './use-space';
 
 export interface SpaceProps extends UseSpaceProps {}

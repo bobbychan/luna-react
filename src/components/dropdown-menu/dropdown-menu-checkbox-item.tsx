@@ -1,8 +1,8 @@
 import { CheckboxItem, ItemIndicator } from '@radix-ui/react-dropdown-menu';
 import { Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { cn } from '../../utils';
 import { CheckIcon } from '../../utils/shared-icons';
+import { cn } from '../../utils/system';
 
 export interface DropdownMenuCheckboxItemProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxItem> {}

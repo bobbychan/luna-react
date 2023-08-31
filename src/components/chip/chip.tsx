@@ -1,6 +1,6 @@
 import { XCircleIcon } from '@heroicons/react/24/solid';
 import { useMemo } from 'react';
-import { forwardRef } from '../../utils';
+import { forwardRef } from '../../utils/system';
 
 import { UseChipProps, useChip } from './use-chip';
 

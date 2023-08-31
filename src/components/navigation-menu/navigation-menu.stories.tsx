@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import clsx from 'clsx';
 import React from 'react';
 import type { NavigationMenuProps } from '.';
 import {
@@ -11,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '.';
+import { clsx } from '../../utils/shared-utils';
 import { Button } from '../button';
 
 const meta: Meta<typeof NavigationMenu> = {

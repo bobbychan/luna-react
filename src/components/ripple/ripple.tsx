@@ -1,6 +1,6 @@
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { FC } from 'react';
-import { HTMLProps } from '../../utils/types';
+import { HTMLProps } from '../../utils/system';
 
 import { RippleType } from './use-ripple';
 
@@ -15,20 +15,11 @@ const clamp = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-const Ripple: FC<RippleProps> = ({
-  ripples = [],
-  motionProps,
-  color = 'currentColor',
-  style,
-}) => {
+const Ripple: FC<RippleProps> = ({ ripples = [], motionProps, color = 'currentColor', style }) => {
   return (
     <>
       {ripples.map((ripple) => {
-        const duration = clamp(
-          0.01 * ripple.size,
-          0.2,
-          ripple.size > 100 ? 0.75 : 0.5,
-        );
+        const duration = clamp(0.01 * ripple.size, 0.2, ripple.size > 100 ? 0.75 : 0.5);
 
         return (
           <AnimatePresence key={ripple.key} mode="popLayout">

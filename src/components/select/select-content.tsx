@@ -1,6 +1,6 @@
 import { Content, Portal, Viewport } from '@radix-ui/react-select';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 import { useSelectContext } from './select-context';
 
 export interface SelectContentProps extends React.ComponentPropsWithoutRef<typeof Content> {

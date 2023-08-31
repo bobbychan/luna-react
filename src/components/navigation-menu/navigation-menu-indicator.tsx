@@ -1,6 +1,6 @@
 import { Indicator } from '@radix-ui/react-navigation-menu';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface NavigationMenuIndicatorProps
   extends React.ComponentPropsWithoutRef<typeof Indicator> {}

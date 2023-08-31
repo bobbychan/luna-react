@@ -1,4 +1,4 @@
-import { forwardRef } from '../../utils/utils';
+import { forwardRef } from '../../utils/system';
 import { LinkIcon } from './link-icon';
 
 import { UseLinkProps, useLink } from './use-link';

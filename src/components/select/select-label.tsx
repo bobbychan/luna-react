@@ -1,6 +1,6 @@
 import { Label } from '@radix-ui/react-select';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface SelectLabelProps extends React.ComponentPropsWithoutRef<typeof Label> {}
 

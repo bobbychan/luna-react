@@ -1,6 +1,6 @@
 import { Content, Portal } from '@radix-ui/react-dropdown-menu';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 import { ScrollArea } from '../scroll-area';
 import { DropdownMenuContentProvider } from './dropdown-menu-content-context';
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { forwardRef } from '../../utils';
+import { forwardRef } from '../../utils/system';
 
 import { AvatarIcon } from './avatar-icon';
 import { useAvatar, UseAvatarProps } from './use-avatar';

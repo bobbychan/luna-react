@@ -1,6 +1,6 @@
 import { Separator } from '@radix-ui/react-select';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface SelectSeparatorProps extends React.ComponentPropsWithoutRef<typeof Separator> {}
 

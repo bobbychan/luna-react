@@ -1,6 +1,6 @@
 import { Viewport } from '@radix-ui/react-navigation-menu';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface NavigationMenuViewportProps
   extends React.ComponentPropsWithoutRef<typeof Viewport> {}

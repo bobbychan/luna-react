@@ -1,6 +1,6 @@
 import { Content, Portal } from '@radix-ui/react-popover';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface PopoverContentProps
   extends Omit<React.ComponentPropsWithoutRef<typeof Content>, 'asChild'> {

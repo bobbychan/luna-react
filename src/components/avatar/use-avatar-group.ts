@@ -1,11 +1,10 @@
 import type { ReactNode } from 'react';
 
-import clsx from 'clsx';
 import { cloneElement, useMemo } from 'react';
-import { avatarGroup } from '../..//theme';
-import { HTMLProps, PropGetter } from '../../utils';
+import { avatarGroup } from '../../theme';
 import { ReactRef, getValidChildren, useDOMRef } from '../../utils/react-utils';
-import { compact } from '../../utils/shared-utils';
+import { clsx, compact } from '../../utils/shared-utils';
+import { HTMLProps, PropGetter } from '../../utils/system';
 
 import { AvatarProps } from './index';
 

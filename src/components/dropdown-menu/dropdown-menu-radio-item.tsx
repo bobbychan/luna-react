@@ -1,8 +1,8 @@
 import { ItemIndicator, RadioItem } from '@radix-ui/react-dropdown-menu';
 import { Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { cn } from '../../utils';
 import { CircleIcon } from '../../utils/shared-icons';
+import { cn } from '../../utils/system';
 
 export interface DropdownMenuRadioItemProps
   extends React.ComponentPropsWithoutRef<typeof RadioItem> {}

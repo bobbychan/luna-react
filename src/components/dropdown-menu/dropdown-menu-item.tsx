@@ -1,7 +1,7 @@
 import { Item } from '@radix-ui/react-dropdown-menu';
 import { Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof Item>,

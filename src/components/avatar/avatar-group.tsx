@@ -1,4 +1,4 @@
-import { forwardRef } from '../../utils';
+import { forwardRef } from '../../utils/system';
 
 import Avatar from './avatar';
 import { AvatarGroupProvider } from './avatar-group-context';

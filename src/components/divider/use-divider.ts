@@ -1,5 +1,5 @@
 import type { DividerVariantProps } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils';
+import type { HTMLProps, PropGetter } from '../../utils/system';
 
 import { Ref, useCallback, useMemo } from 'react';
 import { divider } from '../../theme';

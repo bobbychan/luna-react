@@ -6,7 +6,7 @@ import {
   componentColors,
   componentSizes,
   componentStatuses,
-} from '../../utils/constants';
+} from '../../utils/system/constants';
 import { Button } from '../button';
 
 const meta: Meta<typeof Badge> = {

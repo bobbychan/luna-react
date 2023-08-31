@@ -1,6 +1,6 @@
 import { Content } from '@radix-ui/react-navigation-menu';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 export interface NavigationMenuContentProps
   extends React.ComponentPropsWithoutRef<typeof Content> {}

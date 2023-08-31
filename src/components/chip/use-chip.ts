@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 import type { ChipSlots, ChipVariantProps, SlotsToClasses } from '../../theme';
 
-import clsx from 'clsx';
 import { cloneElement, isValidElement, useMemo } from 'react';
 import { chip } from '../../theme';
-import { HTMLProps, PropGetter, mapPropsVariants } from '../../utils';
 import { ReactRef, useDOMRef } from '../../utils/react-utils';
+import { clsx } from '../../utils/shared-utils';
+import { HTMLProps, PropGetter, mapPropsVariants } from '../../utils/system';
 
 export interface UseChipProps extends HTMLProps, ChipVariantProps {
   /**

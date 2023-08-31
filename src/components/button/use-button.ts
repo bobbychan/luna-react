@@ -1,10 +1,15 @@
+import type { AriaButtonProps } from '@react-aria/button';
 import type { ReactNode } from 'react';
 import type { ButtonVariantProps } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils';
+import type { HTMLProps, PropGetter } from '../../utils/system';
 
+import { useButton as useAriaButton } from '@react-aria/button';
+import { useFocusRing } from '@react-aria/focus';
+import { useHover } from '@react-aria/interactions';
+import { chain, mergeProps } from '@react-aria/utils';
 import { MouseEventHandler, cloneElement, isValidElement, useCallback, useMemo } from 'react';
 import { button } from '../../theme';
-import { ReactRef, chain, useDOMRef } from '../../utils/react-utils';
+import { ReactRef, filterDOMProps, useDOMRef } from '../../utils/react-utils';
 import { dataAttr } from '../../utils/shared-utils';
 import { LoaderProps } from '../loader';
 import { useRipple } from '../ripple';
@@ -49,7 +54,9 @@ interface Props extends HTMLProps<'button'> {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export type UseButtonProps = Props & Omit<ButtonVariantProps, 'isInGroup'>;
+export type UseButtonProps = Props &
+  Omit<AriaButtonProps, keyof ButtonVariantProps> &
+  Omit<ButtonVariantProps, 'isInGroup'>;
 
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();
@@ -75,13 +82,19 @@ export function useButton(props: UseButtonProps) {
     isIconOnly = groupContext?.isIconOnly ?? false,
     isLoading = false,
     loaderPlacement = 'start',
+    onPress,
     onClick,
     ...otherProps
   } = props;
 
   const Component = as || 'button';
+  const shouldFilterDOMProps = typeof Component === 'string';
 
   const domRef = useDOMRef(ref);
+
+  const { isFocusVisible, isFocused, focusProps } = useFocusRing({
+    autoFocus,
+  });
 
   const isDisabled = isDisabledProp || isLoading;
 
@@ -123,14 +136,50 @@ export function useButton(props: UseButtonProps) {
     [disableRipple, isDisabled, disableAnimation, domRef, onRippleClickHandler],
   );
 
+  const { buttonProps: ariaButtonProps, isPressed } = useAriaButton(
+    {
+      elementType: as,
+      isDisabled,
+      onPress,
+      onClick: chain(onClick, handleClick),
+      ...otherProps,
+    } as AriaButtonProps,
+    domRef,
+  );
+
+  const { isHovered, hoverProps } = useHover({ isDisabled });
+
   const getButtonProps: PropGetter = useCallback(
     (props = {}) => ({
       'data-disabled': dataAttr(isDisabled),
+      'data-focus': dataAttr(isFocused),
+      'data-pressed': dataAttr(isPressed),
+      'data-focus-visible': dataAttr(isFocusVisible),
+      'data-hover': dataAttr(isHovered),
       'data-loading': dataAttr(isLoading),
-      onClick: chain(onClick, handleClick),
-      ...otherProps,
+      ...mergeProps(
+        ariaButtonProps,
+        focusProps,
+        hoverProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        filterDOMProps(props),
+      ),
     }),
-    [handleClick, isDisabled, isLoading, onClick, otherProps],
+    [
+      isLoading,
+      isDisabled,
+      isFocused,
+      isPressed,
+      shouldFilterDOMProps,
+      isFocusVisible,
+      isHovered,
+      ariaButtonProps,
+      focusProps,
+      hoverProps,
+      otherProps,
+    ],
   );
 
   const getIconClone = (icon: ReactNode) =>

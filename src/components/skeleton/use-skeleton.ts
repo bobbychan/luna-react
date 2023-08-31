@@ -1,10 +1,9 @@
-import clsx from 'clsx';
 import { Ref, useMemo } from 'react';
 import type { SkeletonSlots, SkeletonVariantProps, SlotsToClasses } from '../../theme';
 import { skeleton } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils';
-import { mapPropsVariants } from '../../utils';
-import { dataAttr } from '../../utils/shared-utils';
+import { clsx, dataAttr } from '../../utils/shared-utils';
+import type { HTMLProps, PropGetter } from '../../utils/system';
+import { mapPropsVariants } from '../../utils/system';
 
 interface Props extends HTMLProps<'div'> {
   /**

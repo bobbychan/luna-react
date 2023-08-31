@@ -7,7 +7,7 @@ import {
   componentShapes,
   componentSizes,
   componentStatuses,
-} from "./constants";
+} from './constants';
 
 export type DataTheme = (typeof DEFAULT_THEMES)[number] | string;
 
@@ -44,7 +44,7 @@ export type DOMAttributes<T = DOMElement> = React.AriaAttributes &
 
 export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<
   Target,
-  "transition" | "as" | "color" | OmitAdditionalProps
+  'transition' | 'as' | 'color' | OmitAdditionalProps
 >;
 
 export type RightJoinProps<
@@ -89,9 +89,9 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
 
 export type Merge<M, N> = N extends Record<string, unknown> ? M : Omit<M, keyof N> & N;
 
-export type HTMLProps<T extends As = "div", OmitKeys extends keyof any = never> = Omit<
+export type HTMLProps<T extends As = 'div', OmitKeys extends keyof any = never> = Omit<
   PropsOf<T>,
-  "ref" | "color" | "slot" | OmitKeys
+  'ref' | 'color' | 'slot' | OmitKeys
 > & {
   as?: As;
 };

@@ -1,7 +1,7 @@
 import { Item, ItemIndicator, ItemText } from '@radix-ui/react-select';
 import React from 'react';
-import { cn } from '../../utils';
 import { CheckIcon } from '../../utils/shared-icons';
+import { cn } from '../../utils/system';
 
 export interface SelectItemProps extends React.ComponentPropsWithoutRef<typeof Item> {}
 

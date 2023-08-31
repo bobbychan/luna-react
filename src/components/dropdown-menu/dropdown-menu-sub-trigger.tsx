@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import { SubTrigger } from '@radix-ui/react-dropdown-menu';
 import { Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,

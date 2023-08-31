@@ -1,6 +1,6 @@
 import { Label } from '@radix-ui/react-dropdown-menu';
 import React from 'react';
-import { cn } from '../../utils';
+import { cn } from '../../utils/system';
 
 const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof Label>,

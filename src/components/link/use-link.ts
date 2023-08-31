@@ -2,10 +2,10 @@ import type { LinkVariantProps } from '../../theme';
 
 import { useCallback, useMemo } from 'react';
 import { link } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils';
 import { ReactRef, useDOMRef } from '../../utils/react-utils';
 import { dataAttr } from '../../utils/shared-utils';
-import { mapPropsVariants } from '../../utils/utils';
+import type { HTMLProps, PropGetter } from '../../utils/system';
+import { mapPropsVariants } from '../../utils/system';
 
 interface Props extends HTMLProps<'a'>, LinkVariantProps {
   /**

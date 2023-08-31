@@ -1,12 +1,11 @@
 import type { SpaceVariantProps } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils';
 import type { ReactRef } from '../../utils/react-utils';
+import type { HTMLProps, PropGetter } from '../../utils/system';
 
-import clsx from 'clsx';
 import { useMemo } from 'react';
 import { space } from '../../theme';
-import { mapPropsVariants } from '../../utils';
-import { dataAttr } from '../../utils/shared-utils';
+import { clsx, dataAttr } from '../../utils/shared-utils';
+import { mapPropsVariants } from '../../utils/system';
 
 export type SpaceSize = 'sm' | 'md' | 'lg' | 'xs' | number;
 

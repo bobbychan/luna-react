@@ -1,9 +1,9 @@
 import type { AlertVariantProps } from '../../theme/components/alert';
-import type { HTMLProps } from '../../utils/types';
+import type { HTMLProps } from '../../utils/system';
 
 import { ReactNode, useMemo } from 'react';
 import { alert } from '../../theme/components/alert';
-import { forwardRef } from '../../utils/utils';
+import { forwardRef } from '../../utils/system';
 
 export interface AlertProps extends HTMLProps<'div'> {
   icon?: ReactNode;

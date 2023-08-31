@@ -1,12 +1,12 @@
 import type { ButtonGroupVariantProps } from '../../theme/components/button';
 import type { ReactRef } from '../../utils/react-utils';
-import type { HTMLProps, PropGetter } from '../../utils/types';
+import type { HTMLProps, PropGetter } from '../../utils/system';
 import type { ButtonProps } from './index';
 
 import { useCallback, useMemo } from 'react';
 import { buttonGroup } from '../../theme/components/button';
 import { useDOMRef } from '../../utils/react-utils';
-import { mapPropsVariants } from '../../utils/utils';
+import { mapPropsVariants } from '../../utils/system';
 
 interface Props extends HTMLProps, ButtonGroupVariantProps {
   /**

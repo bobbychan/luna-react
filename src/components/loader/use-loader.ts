@@ -1,10 +1,10 @@
 import type { LoaderSlots, LoaderVariantProps } from '../../theme';
-import type { HTMLProps, PropGetter } from '../../utils/types';
+import type { HTMLProps, PropGetter } from '../../utils/system';
 
-import clsx from 'clsx';
 import { Ref, useCallback, useMemo } from 'react';
 import { SlotsToClasses, loader } from '../../theme';
-import { mapPropsVariants } from '../../utils/utils';
+import { clsx } from '../../utils/shared-utils';
+import { mapPropsVariants } from '../../utils/system';
 
 interface Props extends HTMLProps<'div'> {
   /**

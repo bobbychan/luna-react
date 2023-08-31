@@ -1,12 +1,12 @@
 import type { AvatarSlots, AvatarVariantProps, SlotsToClasses } from '../../theme';
 
-import clsx from 'clsx';
+import { mergeProps } from '@react-aria/utils';
 import { useCallback, useMemo } from 'react';
 import { useImage } from '../../hooks/use-image';
 import { avatar } from '../../theme';
-import { HTMLProps, PropGetter } from '../../utils';
-import { ReactRef, mergeProps, useDOMRef } from '../../utils/react-utils';
-import { dataAttr, safeText } from '../../utils/shared-utils';
+import { ReactRef, useDOMRef } from '../../utils/react-utils';
+import { clsx, dataAttr, safeText } from '../../utils/shared-utils';
+import { HTMLProps, PropGetter } from '../../utils/system';
 
 import { useAvatarGroupContext } from './avatar-group-context';
 
