@@ -1,12 +1,12 @@
-import {Key} from "react";
+import { Key } from 'react';
 
-import {isObject} from "./assertion";
+import { isObject } from './assertion';
 
 export interface MergeObject {
   [key: string]: any;
 }
 
-export const renameProp = (oldProp: string, newProp: string, {[oldProp]: old, ...others}) => ({
+export const renameProp = (oldProp: string, newProp: string, { [oldProp]: old, ...others }) => ({
   [newProp]: old,
   ...others,
 });
@@ -16,14 +16,14 @@ export const copyObject = (obj: any) => {
   if (!isObject(obj)) return obj;
   if (obj instanceof Array) return [...obj];
 
-  return {...obj};
+  return { ...obj };
 };
 
 // copy an object omit some keys
 export const omitObject = (obj: any, omitKeys: string[]) => {
   if (!isObject(obj)) return obj;
   if (obj instanceof Array) return [...obj];
-  const newObj = {...obj};
+  const newObj = { ...obj };
 
   omitKeys.forEach((key) => newObj[key] && delete newObj[key]);
 
@@ -34,7 +34,7 @@ export const omitObject = (obj: any, omitKeys: string[]) => {
 export const cleanObject = (obj: any) => {
   if (!isObject(obj)) return obj;
   if (obj instanceof Array) return [...obj];
-  const newObj = {...obj};
+  const newObj = { ...obj };
 
   Object.keys(newObj).forEach((key) => {
     if (newObj[key] === undefined || newObj[key] === null) {
@@ -48,7 +48,7 @@ export const cleanObject = (obj: any) => {
 export const cleanObjectKeys = (obj: any, keys: string[] = []) => {
   if (!isObject(obj)) return obj;
   if (obj instanceof Array) return [...obj];
-  const newObj = {...obj};
+  const newObj = { ...obj };
 
   keys.forEach((key) => {
     if (newObj[key]) {
@@ -79,7 +79,7 @@ export const getProp = (
   fallback?: any,
   index?: number,
 ) => {
-  const key = typeof path === "string" ? path.split(".") : [path];
+  const key = typeof path === 'string' ? path.split('.') : [path];
 
   for (index = 0; index < key.length; index += 1) {
     if (!obj) break;
@@ -98,7 +98,7 @@ export const arrayToObject = (arr: any[]) => {
   if (!arr.length || !Array.isArray(arr)) return {};
 
   return arr.reduce((acc, item) => {
-    return {...acc, ...item};
+    return { ...acc, ...item };
   }, {});
 };
 

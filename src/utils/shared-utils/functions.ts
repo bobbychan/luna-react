@@ -58,9 +58,9 @@ export function getUniqueID(prefix: string) {
 /**
  * This function removes all event handlers from an object.
  */
-export function removeEvents(input: {[key: string]: any}) {
+export function removeEvents(input: { [key: string]: any }) {
   for (const key in input) {
-    if (key.startsWith("on")) {
+    if (key.startsWith('on')) {
       delete input[key];
     }
   }

@@ -5,11 +5,11 @@ export const safeText = (text: string): string => {
 };
 
 export const safeAriaLabel = (...texts: any[]): string => {
-  let ariaLabel = " ";
+  let ariaLabel = ' ';
 
   // loop through all texts and return the first non-empty string
   for (const text of texts) {
-    if (typeof text === "string" && text.length > 0) {
+    if (typeof text === 'string' && text.length > 0) {
       ariaLabel = text;
       break;
     }

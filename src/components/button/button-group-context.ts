@@ -1,8 +1,8 @@
-import { createContext } from "../../utils/react-utils";
+import { createContext } from '../../utils/react-utils';
 
-import { ContextType } from "./use-button-group";
+import { ContextType } from './use-button-group';
 
 export const [ButtonGroupProvider, useButtonGroupContext] = createContext<ContextType>({
-  name: "ButtonGroupContext",
+  name: 'ButtonGroupContext',
   strict: false,
 });

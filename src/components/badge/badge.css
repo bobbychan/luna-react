@@ -94,27 +94,27 @@
 
   &-xs {
     height: var(--size-4);
+    padding-inline: 0.313rem;
     font-size: var(--text-xs);
     line-height: var(--leading-4);
-    padding-inline: 0.313rem;
   }
   &-sm {
     height: var(--size-5);
+    padding-inline: 0.438rem;
     font-size: var(--text-xs);
     line-height: var(--leading-5);
-    padding-inline: 0.438rem;
   }
   &-md {
     height: var(--size-6);
+    padding-inline: 0.563rem;
     font-size: var(--text-sm);
     line-height: var(--leading-6);
-    padding-inline: 0.563rem;
   }
   &-lg {
     height: var(--size-8);
+    padding-inline: 0.688rem;
     font-size: var(--text-base);
     line-height: var(--leading-8);
-    padding-inline: 0.688rem;
   }
 
   &-icon {
